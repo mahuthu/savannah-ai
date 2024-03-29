@@ -1,11 +1,11 @@
 import "./Background.css"
 import React from 'react';
 
-import video1 from '../../assets/video1.mp4';
+import video1 from '../../assets/Gen-2spaceship.mp4';
 
-import image1 from '../../assets/image1.png';
-import image2 from '../../assets/image2.png';
-import image3 from '../../assets/image3.png';
+import image1 from '../../assets/african.jpg';
+import image2 from '../../assets/african.jpg';
+import image3 from '../../assets/african.jpg';
 
 
 
