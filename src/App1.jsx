@@ -8,6 +8,7 @@ import Workflow from "./Components/Workflow";
 import Footer from "./Components/Footer";
 import Pricing from "./Components/Pricing";
 import Testimonials from "./Components/Testimonials";
+import AboutUs from "./Components/Aboutus/Aboutus";
 
 const App = () => {
   let heroData = [
@@ -23,7 +24,9 @@ const App = () => {
 <>    
       <Navbar />
       <div className="max-w-7xl mx-auto pt-20 px-6">
+        
         <Background playStatus = {playStatus} heroCount = {heroCount} />
+        
         <Hero 
         setPlayStatus = {setPlayStatus}
         heroData = {heroData}
@@ -31,6 +34,7 @@ const App = () => {
         setHeroCount = {setHeroCount}
         playStatus = {playStatus}
         />
+        <AboutUs />
         <FeatureSection />
         <Workflow />
         <Pricing />
