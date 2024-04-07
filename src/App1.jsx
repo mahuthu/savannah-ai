@@ -9,6 +9,8 @@ import Footer from "./Components/Footer";
 import Pricing from "./Components/Pricing";
 import Testimonials from "./Components/Testimonials";
 import AboutUs from "./Components/Aboutus/Aboutus";
+import PartnersSection from "./Components/Partners";
+import Contact from "./Components/Contact";
 
 const App = () => {
   let heroData = [
@@ -36,9 +38,11 @@ const App = () => {
         />
         <AboutUs />
         <FeatureSection />
-        <Workflow />
+        
         <Pricing />
         <Testimonials />
+        <PartnersSection />
+        <Contact />
         <Footer />
       </div>
     </>

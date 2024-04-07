@@ -131,14 +131,14 @@ const FeatureSection = () => {
   ];
 
   return (
-    <div className="relative mt-20 border-b border-neutral-800 min-h-[800px]" style={{ backgroundColor: 'rgba(0,0,0, 0.9)' }}>
+    <div className="relative mt-20 border-b border-neutral-800 min-h-[800px]" style={{ backgroundColor: 'rgba(0,0,0, 0.5)' }}>
       <div className="text-center">
         <span className="bg-neutral-900 text-red-700 rounded-full h-6 text-sm font-medium px-2 py-1 uppercase">
           Our Services
         </span>
-        <h2 className="text-3xl sm:text-5xl lg:text-6xl mt-10 lg:mt-20 tracking-wide ">
+        <h2 className="text-3xl sm:text-5xl lg:text-6xl mt-10 lg:mt-20 tracking-wide text-lime-200 ">
           AI {" "}
-          <span className="bg-gradient-to-r from-red-700 to-red-900 text-transparent bg-clip-text">
+          <span className="bg-gradient-to-r from-red-200 to-red-300 text-transparent bg-clip-text">
             is Everywhere
           </span>
         </h2>
@@ -147,12 +147,12 @@ const FeatureSection = () => {
         {features.map((feature, index) => (
           <div key={index} className="w-full sm:w-1/2 lg:w-1/3">
             <div className="flex">
-              <div className="flex mx-6 h-10 w-10 p-2 bg-neutral-900 text-orange-900 justify-center items-center rounded-full">
+              <div className="flex mx-6 h-10 w-10 p-2 bg-neutral-900 text-lime-200 justify-center items-center rounded-full">
                 {feature.icon}
               </div>
               <div>
                 <h5 className="mt-1 mb-6 text-xl">{feature.text}</h5>
-                <p className="text-md p-2 mb-20 text-red-500">
+                <p className="text-md p-2 mb-20 text-orange-200">
                   {feature.description}
                 </p>
               </div>

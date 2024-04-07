@@ -12,7 +12,7 @@ const Hero = ({heroData, setHeroCount, heroCount, setPlayStatus, playStatus}) =>
             <p>{heroData.text2}</p>
         </div>
         <div className="hero-explore">
-            <h2 className=" text-3xl sm:text-5xl lg:text-6xl mt-10 lg:mt-20 tracking-wide text-red-700   ">Discover the power of Artificial Intelligence</h2>
+            <h2 className=" text-3xl sm:text-5xl lg:text-5xl mt-10 lg:mt-20 tracking-wide text-red-200 text-center  ">Discover the power of Artificial Intelligence</h2>
             
         </div>
         <div className="hero-dot-play">

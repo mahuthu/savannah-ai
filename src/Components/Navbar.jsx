@@ -16,7 +16,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           <div className="flex items-center flex-shrink-0">
             <img className="h-10 w-10 mr-2" src={afroprompts1} alt="Logo" />
-            <span className="text-xl tracking-tight text-red-900 font-bold">Savannah AI</span>
+            <span className="text-xl tracking-tight text-red-200 font-bold">Savannah AI</span>
           </div>
           <ul className="hidden lg:flex ml-14 space-x-12">
             {navItems.map((item, index) => (
@@ -33,7 +33,7 @@ const Navbar = () => {
               href="#"
               className="bg-gradient-to-r from-red-700 to-red-900 py-2 px-3 rounded-md"
             >
-              Create an account
+              Contact Us
             </a>
           </div>
           <div className="lg:hidden md:flex flex-col justify-end">
