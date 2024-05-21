@@ -55,7 +55,7 @@ const Pricing = () => {
         </span>
       </h1>
       <p className="mt-10 text-lg text-center text-lime-200 max-w-4xl font-bold">
-        Empower your creativity and bring your VR app ideas to life with our intuitive development tools. Get started today and turn your imagination into immersive reality!
+        Empower your creativity and bring your app ideas to life with our intuitive development tools. Get started today and turn your imagination into immersive reality!
       </p>
       <div className="flex justify-center ">
         <a href="#" className="bg-gradient-to-r from-red-500 to-orange-300 py-3 px-4 mx-3 rounded-md">

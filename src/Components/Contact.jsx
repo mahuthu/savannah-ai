@@ -11,11 +11,13 @@ const Contact = () => {
             <p className="text-lg text-red-200 leading-relaxed mb-6">
               Feel free to reach out to us with any inquiries or questions. Our team is here to assist you and provide
               information about our services, pricing, and more. You can contact us via phone, email, or by filling out
-              the form below.
+              the form .
             </p>
             <div className="mb-6">
-              <h4 className="text-xl font-bold text-red-200 mb-2">Phone:</h4>
-              <p className="text-lg text-red-200">(123) 456-7890</p>
+              <h4 className="text-xl font-bold text-red-200 mb-2">Phone1:</h4>
+              <p className="text-lg text-red-200">+254793704217</p>
+              <h4 className="text-xl font-bold text-red-200 mb-2">Phone2:</h4>
+              <p className="text-lg text-red-200">+254726258462</p>
             </div>
             <div className="mb-6">
               <h4 className="text-xl font-bold text-red-200 mb-2">Email:</h4>

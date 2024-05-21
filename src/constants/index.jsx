@@ -5,56 +5,56 @@ import { ShieldHalf } from "lucide-react";
 import { PlugZap } from "lucide-react";
 import { GlobeLock } from "lucide-react";
 
-import user1 from "../assets/profile-pictures/user1.jpg";
-import user2 from "../assets/profile-pictures/user2.jpg";
-import user3 from "../assets/profile-pictures/user3.jpg";
-import user4 from "../assets/profile-pictures/user4.jpg";
-import user5 from "../assets/profile-pictures/user5.jpg";
-import user6 from "../assets/profile-pictures/user6.jpg";
+import user1 from "../assets/profile-pictures/user1.jpeg";
+import user2 from "../assets/profile-pictures/user2.jpeg";
+import user3 from "../assets/profile-pictures/user3.jpeg";
+import user4 from "../assets/profile-pictures/user4.jpeg";
+import user5 from "../assets/profile-pictures/user5.jpeg";
+import user6 from "../assets/profile-pictures/user6.jpeg";
 
 export const navItems = [
-  { label: "Features", href: "#" },
-  { label: "Workflow", href: "#" },
-  { label: "Pricing", href: "#" },
-  { label: "Testimonials", href: "#" },
+  { label: "Home", href: "#" },
+  { label: "About Us", href: "#" },
+  { label: "Services", href: "#" },
+  { label: "Blog", href: "#" },
 ];
 
 export const testimonials = [
   {
-    user: "John Doe",
-    company: "Stellar Solutions",
+    user: "Satya Nadella",
+    company: "CEO Microsoft",
     image: user1,
-    text: "I am extremely satisfied with the services provided. The team was responsive, professional, and delivered results beyond my expectations.",
+    text: "AI is not only for engineers. It brings changes in the dynamic of business, and we have to adapt or die.",
   },
   {
-    user: "Jane Smith",
-    company: "Blue Horizon Technologies",
+    user: "Ray Kurzweil",
+    company: "Author & Inventor",
     image: user2,
-    text: "I couldn't be happier with the outcome of our project. The team's creativity and problem-solving skills were instrumental in bringing our vision to life",
+    text: "By the end of this decade, there will be machines that can carry out most human professions at least as well as a typical human.",
   },
   {
-    user: "David Johnson",
-    company: "Quantum Innovations",
+    user: "Eric Schmidt",
+    company: "Ex Google CEO",
     image: user3,
-    text: "Working with this company was a pleasure. Their attention to detail and commitment to excellence are commendable. I would highly recommend them to anyone looking for top-notch service.",
+    text: "AI will be the most transformative technology since electricity",
   },
   {
-    user: "Ronee Brown",
-    company: "Fusion Dynamics",
+    user: "James Manyika",
+    company: "Senior Partner McKinsey & Company",
     image: user4,
-    text: "Working with the team at XYZ Company was a game-changer for our project. Their attention to detail and innovative solutions helped us achieve our goals faster than we thought possible. We are grateful for their expertise and professionalism!",
+    text: "We’re going to see tremendous occupational shifts. Some jobs will climb while others decline. So how do we enable and support workers as they transition from occupation to occupation? We don’t do that very well. I worry about the skill shifts. Skill requirements are going to be substantial and how do we get there quickly enough?",
   },
   {
-    user: "Michael Wilson",
-    company: "Visionary Creations",
+    user: "Mark Cuban",
+    company: "Owner Dallas Mavericks",
     image: user5,
-    text: "I am amazed by the level of professionalism and dedication shown by the team. They were able to exceed our expectations and deliver outstanding results.",
+    text: "AI is going to change everything, but it’s going to be a partnership between humans and AI, not a competition",
   },
   {
-    user: "Emily Davis",
-    company: "Synergy Systems",
+    user: "Kai-Fu-Lee",
+    company: "Taiwanese Businessman",
     image: user6,
-    text: "The team went above and beyond to ensure our project was a success. Their expertise and dedication are unmatched. I look forward to working with them again in the future.",
+    text: "AI will not replace jobs, but it will change the nature of work.",
   },
 ];
 
