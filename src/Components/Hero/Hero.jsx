@@ -12,7 +12,15 @@ const Hero = ({heroData, setHeroCount, heroCount, setPlayStatus, playStatus}) =>
             <p>{heroData.text2}</p>
         </div>
         <div className="hero-explore">
-            <h2 className=" text-3xl sm:text-5xl lg:text-5xl mt-10 lg:mt-20 tracking-wide text-red-200 text-center  ">Discover the power of Artificial Intelligence</h2>
+            {/* <h2 className=" text-3xl sm:text-5xl lg:text-5xl mt-10 lg:mt-20 tracking-wide text-red-200 text-center  ">Power Enterprise AI, Government AI, and Generative AI with Your Data
+
+</h2> */}
+    <h2 className="text-3xl sm:text-5xl lg:text-5xl mt-10 lg:mt-20 tracking-wide text-red-200 text-center ">
+    Power Enterprise AI, Government AI, and Generative AI {" "}
+          <span className="text-3xl sm:text-5xl lg:text-6xl mt-10 lg:mt-20 tracking-wide text-lime-200 ">
+          with your data
+          </span>
+        </h2>
             
         </div>
         <div className="hero-dot-play">
@@ -21,9 +29,9 @@ const Hero = ({heroData, setHeroCount, heroCount, setPlayStatus, playStatus}) =>
                 <li onClick = {() => setHeroCount(1)} className = {heroCount ===1? "hero-dot orange" :"hero-dot" } ></li>
                 <li onClick = {() => setHeroCount(2)} className = {heroCount ===2? "hero-dot orange" :"hero-dot" } ></li>
             </ul>
-            <div className="hero-play">
+            {/* <div className="hero-play">
                 <img onClick = {() => setPlayStatus(!playStatus)} src = {playStatus? pause_icon : play_icon} alt = ""/>
-            </div>
+            </div> */}
         </div>
 
     </div>

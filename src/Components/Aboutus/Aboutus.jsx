@@ -30,8 +30,7 @@ const AboutUs = () => {
   className="bg-gradient-to-r from-lime-200 to-lime-300 text-transparent bg-clip-text text-lg font-bold text-center"
   style={{ fontSize: '1.5rem' }}
 >
-  Savannah AI is a leading AI consulting agency based in Kenya dedicated to providing comprehensive AI solutions that enhance productivity, streamline processes, and drive growth for organizations across various industries.
-</span>
+Make the best models with the best data. Savannah AI powers the development of AI across African enterprises and institutions, leveraging your data to unlock the true value of AI in Africa</span>
         <span className="bg-gradient-to-r from-lime-200 to-lime-300 text-transparent bg-clip-text text-lg font-bold text-center text_lg">
         </span>
         

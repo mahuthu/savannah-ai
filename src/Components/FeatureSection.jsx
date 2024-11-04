@@ -19,114 +19,114 @@ const FeatureSection = () => {
           />
         </svg>
       ),
+      text: "Data Collection and Annotation",
+      description:
+        "Leverage high-quality data collection and annotation services to train AI models that truly understand African contexts.",
+    },
+    {
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M19 14l-7 7m0 0l-7-7m7 7V3"
+          />
+        </svg>
+      ),
+      text: "Custom Model Training",
+      description:
+        "Create and fine-tune AI models specifically for industries across Africa, utilizing relevant data to ensure optimal performance.",
+    },
+    {
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M12 14l9-5-9-5-9 5 9 5z"
+          />
+        </svg>
+      ),
+      text: "AI-Driven Insights & Analytics",
+      description:
+        "Transform raw data into actionable insights using advanced AI analytics tailored to regional market needs and trends.",
+    },
+    {
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M19 14l-7 7m0 0l-7-7m7 7V3"
+          />
+        </svg>
+      ),
+      text: "AI Product Development",
+      description:
+        "Develop AI-powered products that address unique business needs and drive innovation across African sectors.",
+    },
+    {
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M12 14l9-5-9-5-9 5 9 5z"
+          />
+        </svg>
+      ),
+      text: "AI Strategy & Consulting",
+      description:
+        "Gain strategic guidance on implementing AI solutions effectively, from planning to execution, for maximum impact.",
+    },
+    {
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M19 14l-7 7m0 0l-7-7m7 7V3"
+          />
+        </svg>
+      ),
       text: "AI Training & Education",
       description:
-        "Empower businesses with AI training programs and workshops, educating teams on AI concepts, tools, and best practices.",
-    },
-    {
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 14l-7 7m0 0l-7-7m7 7V3"
-          />
-        </svg>
-      ),
-      text: "AI Integration Services",
-      description:
-        "Integrate AI solutions seamlessly into existing systems to streamline processes and increase operational efficiency..",
-    },
-    {
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M12 14l9-5-9-5-9 5 9 5z"
-          />
-        </svg>
-      ),
-      text: "Model Training & Fine-tuning",
-      description:
-        "Utilize our Azure compute instances for training and fine-tuning AI models tailored to specific industry needs and domains.",
-    },
-    {
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 14l-7 7m0 0l-7-7m7 7V3"
-          />
-        </svg>
-      ),
-      text: "Chatbot Development with NLP",
-      description:
-        "Create AI-powered chatbots using advanced Natural Language Processing (NLP) techniques, customized for diverse industries and domains.",
-    },
-    {
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M12 14l9-5-9-5-9 5 9 5z"
-          />
-        </svg>
-      ),
-      text: "Data Collection and Annotation Services",
-      description:
-        "Implement data collection and annotation services to enhance AI models and improve accuracy.",
-    },
-    {
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 14l-7 7m0 0l-7-7m7 7V3"
-          />
-        </svg>
-      ),
-      text: "Awareness & Content Creation",
-      description:
-        "Generate awareness and produce educational content on AI tools, technologies, and industry applications through engaging campaigns and resources.",
+        "Equip teams with the knowledge and skills needed to integrate AI technologies successfully, fostering local AI expertise.",
     },
   ];
 
@@ -137,9 +137,9 @@ const FeatureSection = () => {
           Our Services
         </span>
         <h2 className="text-3xl sm:text-5xl lg:text-6xl mt-10 lg:mt-20 tracking-wide text-lime-200 ">
-          AI {" "}
+        The future of your industry {" "}
           <span className="bg-gradient-to-r from-red-200 to-red-300 text-transparent bg-clip-text">
-            is Everywhere
+          starts here
           </span>
         </h2>
       </div>
