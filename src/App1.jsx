@@ -37,9 +37,10 @@ const App = () => {
         playStatus = {playStatus}
         />
         <AboutUs />
+        <Pricing />
+
         <FeatureSection />
         
-        <Pricing />
         <Testimonials />
         <PartnersSection />
         <Contact />

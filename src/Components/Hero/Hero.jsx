@@ -15,7 +15,7 @@ const Hero = ({heroData, setHeroCount, heroCount, setPlayStatus, playStatus}) =>
             {/* <h2 className=" text-3xl sm:text-5xl lg:text-5xl mt-10 lg:mt-20 tracking-wide text-red-200 text-center  ">Power Enterprise AI, Government AI, and Generative AI with Your Data
 
 </h2> */}
-    <h2 className="text-3xl sm:text-5xl lg:text-5xl mt-10 lg:mt-20 tracking-wide text-red-200 text-center ">
+    <h2 className="text-3xl sm:text-5xl lg:text-5xl mt-10 lg:mt-20 tracking-wide text-white text-center ">
     Power Enterprise AI, Government AI, and Generative AI {" "}
           <span className="text-3xl sm:text-5xl lg:text-6xl mt-10 lg:mt-20 tracking-wide text-lime-200 ">
           with your data

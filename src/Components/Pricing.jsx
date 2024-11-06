@@ -2,11 +2,11 @@ import React, { useRef } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import image1 from '../assets/Julias2.png';
-import image2 from '../assets/Numerous.jpg';
-import image3 from '../assets/canva.jpg';
-import image4 from '../assets/tealhq.jpg';
-import image5 from "../assets/framer.jpg";
+import image1 from '../assets/profile-pictures/data4.png';
+import image2 from '../assets/profile-pictures/data1.jpeg';
+import image3 from '../assets/profile-pictures/data3.jpeg';
+import image4 from '../assets/profile-pictures/data5.png';
+import image5 from "../assets/profile-pictures/data6.jpeg";
 
 
 const Pricing = () => {
@@ -60,14 +60,14 @@ const Pricing = () => {
   return (
     <div className="flex flex-col items-center mt-4 sm:mt-6 lg:mt-20 px-3 sm:px-4">
       <h1 className="text-2xl sm:text-4xl lg:text-7xl text-center tracking-wide px-2">
-        Leverage AI
+      leveraging your data
         <span className="bg-gradient-to-r from-orange-200 to-red-300 text-transparent bg-clip-text">
           {' '}
-          to boost your productivity
+          to unlock the true value of AI
         </span>
       </h1>
       
-      <p className="mt-4 sm:mt-10 text-sm sm:text-lg text-center text-lime-200 max-w-4xl font-bold px-4 sm:px-6">
+      <p className="mt-4 sm:mt-10 text-1xl sm:text-lg text-center text-lime-200 max-w-4xl font-bold px-4 sm:px-6">
         Securely store, access, and share annotated datasets on our cloud platform. We license high-quality data for your AI projects. Start today and unleash your data's potential!
       </p>
       

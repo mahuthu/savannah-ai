@@ -53,10 +53,10 @@ const PartnersSection = () => {
   return (
     <div className="relative mt-5 sm:mt-20 border-b border-neutral-800 min-h-[300px] sm:min-h-[600px]" style={{ backgroundColor: 'rgba(0,0,0, 0.4)' }}>
       <div className="text-center px-2 sm:px-6 lg:px-8">
-        <span className="inline-block bg-neutral-900 text-red-700 rounded-full text-xs sm:text-sm font-medium px-2 py-1 uppercase">
+        <span className="inline-block bg-neutral-900 text-white rounded-full text-xs sm:text-sm font-medium px-2 py-1 uppercase">
           Our Partners
         </span>
-        <h2 className="text-xl sm:text-3xl lg:text-5xl mt-4 sm:mt-10 lg:mt-20 tracking-wide text-red-200">
+        <h2 className="text-xl sm:text-3xl lg:text-3xl mt-4 sm:mt-10 lg:mt-20 tracking-wide text-red-200">
           GENERATIVE AI PROVIDERS
         </h2>
         <div className="max-w-[90%] sm:max-w-screen-xl mx-auto mt-4 sm:mt-8">
