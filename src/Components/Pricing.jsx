@@ -67,7 +67,7 @@ const Pricing = () => {
         </span>
       </h1>
       
-      <p className="mt-4 sm:mt-10 text-1xl sm:text-lg text-center text-lime-200 max-w-4xl font-bold px-4 sm:px-6">
+      <p className="mt-4 sm:mt-10 text-1xl sm:text-lg text-center text-neutral-300 max-w-2xl mx-auto text-lg">
         Securely store, access, and share annotated datasets on our cloud platform. We license high-quality data for your AI projects. Start today and unleash your data's potential!
       </p>
       

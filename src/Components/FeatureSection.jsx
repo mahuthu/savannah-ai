@@ -1,129 +1,40 @@
 import React from 'react';
+import { Database, Brain, BarChart3, Rocket, LightbulbIcon, GraduationCap } from 'lucide-react';
 
 const FeatureSection = () => {
   const features = [
     {
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M12 14l9-5-9-5-9 5 9 5z"
-          />
-        </svg>
-      ),
+      icon: <Database className="w-6 h-6" />,
       text: "Data Collection and Annotation",
       description:
         "Leverage high-quality data collection and annotation services to train AI models that truly understand African contexts.",
     },
     {
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 14l-7 7m0 0l-7-7m7 7V3"
-          />
-        </svg>
-      ),
+      icon: <Brain className="w-6 h-6" />,
       text: "Custom Model Training",
       description:
         "Create and fine-tune AI models specifically for industries across Africa, utilizing relevant data to ensure optimal performance.",
     },
     {
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M12 14l9-5-9-5-9 5 9 5z"
-          />
-        </svg>
-      ),
+      icon: <BarChart3 className="w-6 h-6" />,
       text: "AI-Driven Insights & Analytics",
       description:
         "Transform raw data into actionable insights using advanced AI analytics tailored to regional market needs and trends.",
     },
     {
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 14l-7 7m0 0l-7-7m7 7V3"
-          />
-        </svg>
-      ),
+      icon: <Rocket className="w-6 h-6" />,
       text: "AI Product Development",
       description:
         "Develop AI-powered products that address unique business needs and drive innovation across African sectors.",
     },
     {
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M12 14l9-5-9-5-9 5 9 5z"
-          />
-        </svg>
-      ),
+      icon: <LightbulbIcon className="w-6 h-6" />,
       text: "AI Strategy & Consulting",
       description:
         "Gain strategic guidance on implementing AI solutions effectively, from planning to execution, for maximum impact.",
     },
     {
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 14l-7 7m0 0l-7-7m7 7V3"
-          />
-        </svg>
-      ),
+      icon: <GraduationCap className="w-6 h-6" />,
       text: "AI Training & Education",
       description:
         "Equip teams with the knowledge and skills needed to integrate AI technologies successfully, fostering local AI expertise.",
@@ -131,34 +42,63 @@ const FeatureSection = () => {
   ];
 
   return (
-    <div className="relative mt-20 border-b border-neutral-800 min-h-[800px]" style={{ backgroundColor: 'rgba(0,0,0, 0.5)' }}>
-      <div className="text-center">
-        <span className="bg-neutral-900 text-white rounded-full h-6 text-sm font-medium px-2 py-1 uppercase">
-          Our Services
-        </span>
-        <h2 className="text-3xl sm:text-5xl lg:text-6xl mt-10 lg:mt-20 tracking-wide text-lime-200 ">
-        The future of your industry {" "}
-          <span className="bg-gradient-to-r from-red-200 to-red-300 text-transparent bg-clip-text">
-          starts here
+    <div className="relative py-20 ">
+      {/* Background with gradient */}
+      <div className="absolute inset-0 "></div>
+
+      <div className="relative z-10 container mx-auto px-4">
+        {/* Header Section */}
+        <div className="text-center mb-16">
+          <span className="inline-block bg-red-500/10 text-red-300 rounded-full px-4 py-2 text-sm font-medium uppercase tracking-wider mb-6">
+            Our Services
           </span>
-        </h2>
-      </div>
-      <div className="flex flex-wrap mt-10 lg:mt-20">
-        {features.map((feature, index) => (
-          <div key={index} className="w-full sm:w-1/2 lg:w-1/3">
-            <div className="flex">
-              <div className="flex mx-6 h-10 w-10 p-2 bg-neutral-900 text-lime-200 justify-center items-center rounded-full">
-                {feature.icon}
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl  font-bold mb-6">
+            The future of your industry
+            <span className="block mt-2 bg-gradient-to-r from-orange-200 to-red-300 text-transparent bg-clip-text">
+              starts here
+            </span>
+          </h2>
+          <p className="text-neutral-300 max-w-2xl mx-auto text-lg">
+            Empowering African businesses with cutting-edge AI solutions and quality data
+          </p>
+        </div>
+
+        {/* Features Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature, index) => (
+            <div 
+              key={index}
+              className="group bg-neutral-900/50 backdrop-blur-sm rounded-xl p-6 
+                         border border-neutral-800 hover:border-red-500/20 
+                         transition-all duration-300 hover:-translate-y-1"
+            >
+              <div className="bg-gradient-to-br from-red-500/10 to-orange-500/10 
+                            rounded-lg p-3 inline-block mb-4">
+                <div className="text-red-300">
+                  {feature.icon}
+                </div>
               </div>
-              <div>
-                <h5 className="mt-1 mb-6 text-xl">{feature.text}</h5>
-                <p className="text-md p-2 mb-20 text-orange-200">
-                  {feature.description}
-                </p>
-              </div>
+              
+              <h3 className="text-xl font-bold text-white mb-3 group-hover:text-red-300 
+                           transition-colors">
+                {feature.text}
+              </h3>
+              
+              <p className="text-neutral-400 leading-relaxed">
+                {feature.description}
+              </p>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+
+        {/* Call to Action */}
+        <div className="text-center mt-16">
+          <button className="bg-gradient-to-r from-red-500 to-orange-300 
+                           px-8 py-3 rounded-lg text-white font-semibold 
+                           hover:opacity-90 transition-opacity">
+            Learn More About Our Services
+          </button>
+        </div>
       </div>
     </div>
   );

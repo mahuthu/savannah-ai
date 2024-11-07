@@ -13,10 +13,31 @@ import user5 from "../assets/profile-pictures/user5.jpeg";
 import user6 from "../assets/profile-pictures/user6.jpeg";
 
 export const navItems = [
-  { label: "Home", href: "#" },
-  { label: "About Us", href: "#" },
-  { label: "Services", href: "#" },
-  { label: "Blog", href: "#" },
+  { 
+    label: "Home", 
+    href: "/",
+    submenus: [] 
+  },
+  { 
+    label: "About Us", 
+    href: "/aboutus",
+    submenus: [] 
+  },
+  { 
+    label: "Services", 
+    href: "/services",
+    submenus: [] 
+  },
+  { 
+    label: "Datasets", 
+    href: "/dataset",
+    submenus: [] 
+  },
+  { 
+    label: "Blog", 
+    href: "/blog",
+    submenus: [] 
+  },
 ];
 
 export const testimonials = [
@@ -176,3 +197,81 @@ export const communityLinks = [
   { href: "#", text: "Hackathons" },
   { href: "#", text: "Jobs" },
 ];
+
+
+export const datasets = [
+  {
+    id: 1,
+    title: "Conversational Audio Dataset",
+    type: "Audio",
+    description: "High-quality conversational audio in multiple African languages for speech recognition and language learning",
+    samples: 10000,
+    languages: ["Swahili", "English", "Arabic"],
+    useCases: ["Speech Recognition", "Language Learning"],
+    units: "Hours",
+    imageUrl: "/path-to-image.jpg"
+  },
+  {
+    id: 2,
+    title: "African Text Corpus",
+    type: "Text",
+    description: "Comprehensive text dataset in various African languages for NLP and machine translation",
+    samples: 50000,
+    languages: ["Swahili", "Yoruba", "Amharic"],
+    useCases: ["NLP", "Machine Translation"],
+    units: "Words",
+    imageUrl: "/path-to-image.jpg"
+  },
+  {
+    id: 3,
+    title: "African Landmarks Dataset",
+    type: "Image",
+    description: "High-resolution images of African landmarks and cultural sites for computer vision",
+    samples: 25000,
+    languages: ["Universal"],
+    useCases: ["Computer Vision", "Image Recognition"],
+    units: "Images",
+    imageUrl: "/path-to-image.jpg"
+  },
+  {
+    id: 4,
+    title: "African Wildlife Video Dataset",
+    type: "Video",
+    description: "HD video footage of African wildlife for object detection and tracking",
+    samples: 5000,
+    languages: ["Universal"],
+    useCases: ["Object Detection", "Video Analysis"],
+    units: "Videos",
+    imageUrl: "/path-to-image.jpg"
+  },
+  {
+    id: 5,
+    title: "African Music Dataset",
+    type: "Audio",
+    description: "Traditional African music recordings for music analysis and classification",
+    samples: 15000,
+    languages: ["Multiple"],
+    useCases: ["Music Analysis", "Audio Classification"],
+    units: "Hours",
+    imageUrl: "/path-to-image.jpg"
+  }
+];
+
+// Filter options based on the available datasets
+export const filterOptions = {
+  type: ["Audio", "Video", "Text", "Image"],
+  useCase: [
+    "Speech Recognition",
+    "Language Learning",
+    "NLP",
+    "Machine Translation",
+    "Computer Vision",
+    "Image Recognition",
+    "Object Detection",
+    "Video Analysis",
+    "Music Analysis",
+    "Audio Classification"
+  ],
+  language: ["Swahili", "English", "Arabic", "Yoruba", "Amharic", "Universal", "Multiple"],
+  units: ["Hours", "Words", "Images", "Videos"]
+};
