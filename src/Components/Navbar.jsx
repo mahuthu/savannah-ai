@@ -50,7 +50,7 @@ const Navbar = () => {
           {/* Desktop Buttons */}
           <div className="hidden lg:flex justify-center space-x-12 items-center">
             <Link 
-              to="/signin" 
+              to="/login" 
               className="py-2 px-3 border border-neutral-700 rounded-md text-white hover:border-red-300 transition-colors"
             >
               Sign In

@@ -5,8 +5,12 @@ import Background from "./Components/Background/Background";
 import Footer from "./Components/Footer";
 import Home from "./pages/home";
 import Dataset from "./pages/dataset";
-import About from "./pages/about"
-import Services from "./pages/services"
+import About from "./pages/about";
+import Services from "./pages/services";
+import Login from "./pages/SignIn"
+import Register from './pages/SignUp';
+import Contacts from "./pages/contact";
+
 
 const App = () => {
   const [heroCount, setHeroCount] = useState(2);
@@ -32,6 +36,13 @@ const App = () => {
               <Route path="/dataset" element={<Dataset />} />
               <Route path="/aboutus" element={<About />} />
               <Route path="/services" element={<Services />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/Register" element={<Register />} />
+              <Route path="/contact" element={<Contacts />} />
+
+              
+
+
 
             </Routes>
           </main>

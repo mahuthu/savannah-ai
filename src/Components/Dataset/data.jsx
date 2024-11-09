@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Search } from 'lucide-react';
+import { Search, ChevronDown, ChevronUp } from 'lucide-react';
 import { datasets, filterOptions } from '../../constants';
 
 const DatasetCatalog = () => {
@@ -10,6 +10,7 @@ const DatasetCatalog = () => {
     language: [],
     units: []
   });
+  const [openFilter, setOpenFilter] = useState(null);
 
   // Filter datasets based on search query and active filters
   const filteredDatasets = useMemo(() => {
@@ -48,6 +49,10 @@ const DatasetCatalog = () => {
     }));
   };
 
+  const toggleFilter = (category) => {
+    setOpenFilter(openFilter === category ? null : category);
+  };
+
   return (
     <div className="container mx-auto px-4 py-12">
       {/* Header Section */}
@@ -76,8 +81,41 @@ const DatasetCatalog = () => {
         <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-neutral-400" size={20} />
       </div>
 
-      {/* Filters Section */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+      {/* Mobile Filters (Dropdown Style) */}
+      <div className="md:hidden space-y-4 mb-8">
+        {Object.entries(filterOptions).map(([category, options]) => (
+          <div key={category} className="bg-neutral-900 rounded-lg">
+            <button
+              onClick={() => toggleFilter(category)}
+              className="w-full px-4 py-3 flex justify-between items-center text-white border-b border-neutral-800"
+            >
+              <span className="text-red-300 font-semibold capitalize">{category}</span>
+              {openFilter === category ? 
+                <ChevronUp className="w-5 h-5" /> : 
+                <ChevronDown className="w-5 h-5" />
+              }
+            </button>
+            {openFilter === category && (
+              <div className="p-4 space-y-2 border-t border-neutral-800">
+                {options.map((option) => (
+                  <label key={option} className="flex items-center space-x-2 text-white cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={activeFilters[category].includes(option)}
+                      onChange={() => handleFilterChange(category, option)}
+                      className="rounded border-neutral-700 text-orange-500 focus:ring-orange-500"
+                    />
+                    <span>{option}</span>
+                  </label>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      {/* Desktop Filters */}
+      <div className="hidden md:grid md:grid-cols-4 gap-6 mb-8">
         {Object.entries(filterOptions).map(([category, options]) => (
           <div key={category} className="bg-neutral-900 rounded-lg p-4">
             <h3 className="text-red-300 font-semibold mb-3 capitalize">{category}</h3>
@@ -97,6 +135,8 @@ const DatasetCatalog = () => {
           </div>
         ))}
       </div>
+
+      {/* Dataset Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredDatasets.map(dataset => (
           <div key={dataset.id} className="bg-neutral-900 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
