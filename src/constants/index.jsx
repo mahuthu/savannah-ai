@@ -33,9 +33,10 @@ export const navItems = [
     href: "/dataset",
     submenus: [] 
   },
+  
   { 
-    label: "Blog", 
-    href: "/blog",
+    label: "Documentation", 
+    href: "/apireference",
     submenus: [] 
   },
 ];

@@ -10,6 +10,7 @@ import Services from "./pages/services";
 import Login from "./pages/SignIn"
 import Register from './pages/SignUp';
 import Contacts from "./pages/contact";
+import Documentation from "./pages/documentation"
 
 
 const App = () => {
@@ -39,6 +40,8 @@ const App = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/Register" element={<Register />} />
               <Route path="/contact" element={<Contacts />} />
+              <Route path="/apireference" element={<Documentation />} />
+
 
               
 
