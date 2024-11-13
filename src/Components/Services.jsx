@@ -89,7 +89,7 @@ const Services = () => {
             Empowering African AI Innovation
           </span>
         </h1>
-        <p className="text-lg sm:text-xl text-lime-200 max-w-4xl mx-auto leading-relaxed">
+        <p className="text-lg sm:text-xl text-neutral-300 max-w-4xl mx-auto leading-relaxed">
           Comprehensive AI solutions tailored for the African market, from data collection to deployment
         </p>
       </div>

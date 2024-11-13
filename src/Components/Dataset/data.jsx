@@ -129,7 +129,7 @@ const DatasetCatalog = () => {
         <p className="text-xl sm:text-2xl bg-gradient-to-r from-orange-200 to-red-300 text-transparent bg-clip-text font-bold mb-4">
           Accelerate your AI projects with licensable datasets
         </p>
-        <p className="text-base sm:text-lg text-lime-200 max-w-4xl mx-auto mb-8">
+        <p className="text-base sm:text-lg text-neutral-300 max-w-4xl mx-auto mb-8">
           Browse our extensive catalog of over 270 audio, image, video and text datasets in over 80 languages. 
           Our pre-labeled datasets are available immediately so you can get started right away.
         </p>

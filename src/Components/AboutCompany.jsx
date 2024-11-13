@@ -36,7 +36,7 @@ const AboutCompany = () => {
           </span>
         </h1>
         
-        <p className="text-lg sm:text-xl text-lime-200 max-w-4xl mx-auto leading-relaxed">
+        <p className="text-lg sm:text-xl text-neutral-300 max-w-4xl mx-auto leading-relaxed">
           Revolutionizing AI development across Africa by providing accessible, high-quality datasets
         </p>
       </div>
