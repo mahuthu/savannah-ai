@@ -29,7 +29,7 @@ const AboutCompany = () => {
     <div className="container mx-auto px-4 py-16">
       {/* Header Section */}
       <div className="text-center mb-16">
-        <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-6">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
           Empowering African AI
           <span className="block mt-2 bg-gradient-to-r from-orange-200 to-red-300 text-transparent bg-clip-text">
             Through Quality Data

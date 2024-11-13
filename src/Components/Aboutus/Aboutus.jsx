@@ -43,7 +43,7 @@ const AboutUs = () => {
           <span className="inline-block bg-red-500/10 text-red-300 rounded-full px-4 py-2 text-sm font-medium uppercase tracking-wider mb-6">
             About Us
           </span>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+          <h2 className="text-4xl sm:text-5xl lg:text-5xl font-bold mb-6">
             <span className="bg-gradient-to-r from-orange-200 to-red-300 text-transparent bg-clip-text">
               Savannah AI
             </span>

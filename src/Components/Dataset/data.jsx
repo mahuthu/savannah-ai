@@ -1,6 +1,15 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Search, ChevronDown, ChevronUp } from 'lucide-react';
-import { datasets, filterOptions } from '../../constants';
+import axios from 'axios';
+import DatasetDetailsModal from '../DatasetDetailModal';
+
+// Add this before the DatasetCatalog component
+const filterOptions = {
+  type: ['Audio', 'Text', 'Image', 'Video'],
+  useCase: ['Speech Recognition', 'Translation', 'Classification', 'Object Detection'],
+  language: ['English', 'Swahili', 'Yoruba', 'Amharic', 'Zulu'],
+  units: ['Hours', 'Samples', 'Images', 'Videos']
+};
 
 const DatasetCatalog = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -11,34 +20,87 @@ const DatasetCatalog = () => {
     units: []
   });
   const [openFilter, setOpenFilter] = useState(null);
+  const [datasets, setDatasets] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [selectedDataset, setSelectedDataset] = useState(null);
+  const [apiKey, setApiKey] = useState("your_api_key_here"); // You'll get this from your auth context/state
 
-  // Filter datasets based on search query and active filters
-  const filteredDatasets = useMemo(() => {
-    return datasets.filter(dataset => {
-      // Search filter
-      const searchMatch = searchQuery === '' || 
-        dataset.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        dataset.description.toLowerCase().includes(searchQuery.toLowerCase());
+  // Add some dummy data for testing
+  const dummyData = [
+    {
+      id: "kiswahili_common_voice",
+      type: 'Audio',
+      title: 'Kiswahili Common Voice',
+      description: 'A collection of Swahili voice recordings for speech recognition.',
+      languages: ['Swahili'],
+      samples: 10000,
+      units: 'Hours',
+      version: "1.0",
+      formats: ["wav", "mp3"],
+      license: "CC-BY-4.0",
+      lastUpdated: "2024-03-15",
+      totalSize: "50GB",
+      versions: [
+        {
+          version: "1.0",
+          stats: {
+            trainSamples: 8000,
+            testSamples: 1000,
+            validateSamples: 1000
+          }
+        }
+      ]
+    }
+  ];
 
-      // Type filter
-      const typeMatch = activeFilters.type.length === 0 || 
-        activeFilters.type.includes(dataset.type);
+  useEffect(() => {
+    const fetchDatasets = async () => {
+      try {
+        setLoading(true);
+        const response = await axios.get('/api/datasets', {
+          params: {
+            type: activeFilters.type.join(','),
+            language: activeFilters.language.join(','),
+            useCase: activeFilters.useCase.join(','),
+            units: activeFilters.units.join(','),
+            search: searchQuery
+          }
+        });
+        setDatasets(response.data || []); // Ensure it's always an array
+      } catch (err) {
+        setError('Error fetching datasets');
+        console.error(err);
+        setDatasets([]); // Set empty array on error
+      } finally {
+        setLoading(false);
+      }
+    };
 
-      // Use case filter
-      const useCaseMatch = activeFilters.useCase.length === 0 || 
-        dataset.useCases.some(useCase => activeFilters.useCase.includes(useCase));
+    // For testing, use dummy data instead of API call
+    setDatasets(dummyData);
+    setLoading(false);
 
-      // Language filter
-      const languageMatch = activeFilters.language.length === 0 || 
-        dataset.languages.some(language => activeFilters.language.includes(language));
-
-      // Units filter
-      const unitsMatch = activeFilters.units.length === 0 || 
-        activeFilters.units.includes(dataset.units);
-
-      return searchMatch && typeMatch && useCaseMatch && languageMatch && unitsMatch;
-    });
+    // Uncomment this when your API is ready
+    // fetchDatasets();
   }, [searchQuery, activeFilters]);
+
+  // Add loading and error states
+  if (loading) {
+    return (
+      <div className="container mx-auto px-4 py-12 text-center">
+        <p className="text-white">Loading datasets...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="container mx-auto px-4 py-12 text-center">
+        <p className="text-red-500">{error}</p>
+      </div>
+    );
+  }
 
   const handleFilterChange = (category, value) => {
     setActiveFilters(prev => ({
@@ -53,11 +115,15 @@ const DatasetCatalog = () => {
     setOpenFilter(openFilter === category ? null : category);
   };
 
+  const handleViewDetails = (dataset) => {
+    setSelectedDataset(dataset);
+  };
+
   return (
     <div className="container mx-auto px-4 py-12">
       {/* Header Section */}
       <div className="text-center mb-12">
-        <h2 className="text-2xl sm:text-4xl lg:text-6xl font-bold mb-6">
+        <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-6">
           Pre-Labeled Datasets
         </h2>
         <p className="text-xl sm:text-2xl bg-gradient-to-r from-orange-200 to-red-300 text-transparent bg-clip-text font-bold mb-4">
@@ -138,33 +204,50 @@ const DatasetCatalog = () => {
 
       {/* Dataset Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredDatasets.map(dataset => (
-          <div key={dataset.id} className="bg-neutral-900 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-            <div className="p-4">
-              <span className="inline-block bg-red-500/10 text-red-300 text-sm px-2 py-1 rounded mb-2">
-                {dataset.type}
-              </span>
-              <h3 className="text-white text-lg font-semibold mb-2">{dataset.title}</h3>
-              <p className="text-neutral-400 text-sm mb-4">
-                {dataset.description}
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {dataset.languages.map(language => (
-                  <span key={language} className="text-xs bg-neutral-800 text-neutral-300 px-2 py-1 rounded">
-                    {language}
-                  </span>
-                ))}
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-orange-300">{dataset.samples.toLocaleString()} {dataset.units}</span>
-                <button className="bg-gradient-to-r from-red-500 to-orange-300 px-4 py-2 rounded-md text-white text-sm hover:opacity-90">
-                  View Details
-                </button>
+        {Array.isArray(datasets) && datasets.length > 0 ? (
+          datasets.map(dataset => (
+            <div key={dataset.id} className="bg-neutral-900 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+              <div className="p-4">
+                <span className="inline-block bg-red-500/10 text-red-300 text-sm px-2 py-1 rounded mb-2">
+                  {dataset.type}
+                </span>
+                <h3 className="text-white text-lg font-semibold mb-2">{dataset.title}</h3>
+                <p className="text-neutral-400 text-sm mb-4">
+                  {dataset.description}
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {dataset.languages.map(language => (
+                    <span key={language} className="text-xs bg-neutral-800 text-neutral-300 px-2 py-1 rounded">
+                      {language}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-orange-300">{dataset.samples.toLocaleString()} {dataset.units}</span>
+                  <button 
+                    onClick={() => handleViewDetails(dataset)}
+                    className="bg-gradient-to-r from-red-500 to-orange-300 px-4 py-2 rounded-md text-white text-sm hover:opacity-90"
+                  >
+                    View Details
+                  </button>
+                </div>
               </div>
             </div>
+          ))
+        ) : (
+          <div className="col-span-full text-center py-8">
+            <p className="text-neutral-400">No datasets found</p>
           </div>
-        ))}
+        )}
       </div>
+
+      {selectedDataset && (
+        <DatasetDetailsModal
+          dataset={selectedDataset}
+          apiKey={apiKey}
+          onClose={() => setSelectedDataset(null)}
+        />
+      )}
     </div>
   );
 };

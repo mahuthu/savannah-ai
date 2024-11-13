@@ -59,7 +59,7 @@ const Pricing = () => {
 
   return (
     <div className="flex flex-col items-center mt-4 sm:mt-6 lg:mt-20 px-3 sm:px-4">
-      <h1 className="text-2xl sm:text-4xl lg:text-7xl text-center tracking-wide px-2">
+      <h1 className="text-2xl sm:text-4xl lg:text-5xl text-center tracking-wide px-2">
       leveraging your data
         <span className="bg-gradient-to-r from-orange-200 to-red-300 text-transparent bg-clip-text">
           {' '}
