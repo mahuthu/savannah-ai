@@ -1,7 +1,7 @@
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import afroprompts1 from "../assets/afroprompts2.png";
+import afroprompts1 from "../assets/afroprompts7.png";
 import { navItems } from "../constants";
 
 const Navbar = () => {
