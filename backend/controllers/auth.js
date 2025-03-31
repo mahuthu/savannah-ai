@@ -1,6 +1,15 @@
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
+const { OAuth2Client } = require('google-auth-library');
+const { google } = require('googleapis');
+
+const oauth2Client = new OAuth2Client(
+  process.env.GOOGLE_CLIENT_ID,
+  process.env.GOOGLE_CLIENT_SECRET,
+  ' https://b2ae-102-215-13-26.ngrok-free.app/auth/google/callback'
+  // 'http://localhost:5000/auth/google/callback'
+);
 
 // Generate JWT Token
 const generateToken = (id) => {
@@ -60,5 +69,75 @@ exports.login = async (req, res) => {
     }
   } catch (error) {
     res.status(500).json({ error: 'Error logging in' });
+  }
+};
+
+exports.googleAuth = async (req, res) => {
+  try {
+    const { email, name, googleId } = req.body;
+
+    let user = await User.findOne({ email });
+
+    if (user) {
+      res.json({
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        apiKey: user.apiKey,
+        token: generateToken(user._id)
+      });
+    } else {
+      user = await User.create({
+        name,
+        email,
+        password: googleId,
+        apiKey: generateApiKey()
+      });
+
+      res.status(201).json({
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        apiKey: user.apiKey,
+        token: generateToken(user._id)
+      });
+    }
+  } catch (error) {
+    res.status(500).json({ error: 'Error with Google authentication' });
+  }
+};
+
+exports.googleCallback = async (req, res) => {
+  try {
+    const { code } = req.query;
+    
+    // Handle the OAuth callback
+    const { tokens } = await oauth2Client.getToken(code);
+    oauth2Client.setCredentials(tokens);
+
+    // Get user info from Google
+    const oauth2 = google.oauth2({ version: 'v2', auth: oauth2Client });
+    const { data } = await oauth2.userinfo.get();
+
+    // Find or create user
+    let user = await User.findOne({ email: data.email });
+
+    if (!user) {
+      user = await User.create({
+        name: data.name,
+        email: data.email,
+        password: crypto.randomBytes(32).toString('hex'), // Random password for Google users
+        apiKey: generateApiKey()
+      });
+    }
+
+    // Generate JWT token
+    const token = generateToken(user._id);
+
+    // Redirect to frontend with token
+    res.redirect(`http://localhost:5173/auth/success?token=${token}`);
+  } catch (error) {
+    console.error('Google callback error:', error);
+    res.redirect(`http://localhost:5173/auth/error`);
   }
 };

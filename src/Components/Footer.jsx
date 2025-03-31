@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
-import { resourcesLinks, platformLinks, communityLinks } from "../constants";
+import { resourcesLinks, platformLinks, communityLinks, navItems } from "../constants";
 
 const Footer = () => {
   return (

@@ -11,6 +11,13 @@ import Login from "./pages/SignIn"
 import Register from './pages/SignUp';
 import Contacts from "./pages/contact";
 import Documentation from "./pages/documentation"
+import DatasetDetails from './pages/DatasetDetails';
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import AuthSuccess from './pages/AuthSuccess';
+import AuthError from './pages/AuthError';
+// ... other imports
+
+
 
 
 const App = () => {
@@ -18,6 +25,8 @@ const App = () => {
   const [playStatus, setPlayStatus] = useState(false);
 
   return (
+    <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
+
     <Router>
       <div className="min-h-screen flex flex-col relative">
         {/* Background will be behind all content */}
@@ -41,10 +50,9 @@ const App = () => {
               <Route path="/Register" element={<Register />} />
               <Route path="/contact" element={<Contacts />} />
               <Route path="/apireference" element={<Documentation />} />
-
-
-              
-
+              <Route path="/datasets/:id" element={<DatasetDetails />} />
+              <Route path="/auth/success" element={<AuthSuccess />} />
+              <Route path="/auth/error" element={<AuthError />} />
 
 
             </Routes>
@@ -54,6 +62,8 @@ const App = () => {
         </div>
       </div>
     </Router>
+    </GoogleOAuthProvider>
+
   );
 };
 

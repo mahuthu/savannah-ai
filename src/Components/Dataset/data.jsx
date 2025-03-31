@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Search, ChevronDown, ChevronUp } from 'lucide-react';
 import axios from 'axios';
-import DatasetDetailsModal from '../DatasetDetailModal';
+import { useNavigate } from 'react-router-dom';
 
 // Add this before the DatasetCatalog component
 const filterOptions = {
@@ -12,6 +12,7 @@ const filterOptions = {
 };
 
 const DatasetCatalog = () => {
+  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilters, setActiveFilters] = useState({
     type: [],
@@ -26,39 +27,11 @@ const DatasetCatalog = () => {
   const [selectedDataset, setSelectedDataset] = useState(null);
   const [apiKey, setApiKey] = useState("your_api_key_here"); // You'll get this from your auth context/state
 
-  // Add some dummy data for testing
-  const dummyData = [
-    {
-      id: "kiswahili_common_voice",
-      type: 'Audio',
-      title: 'Kiswahili Common Voice',
-      description: 'A collection of Swahili voice recordings for speech recognition.',
-      languages: ['Swahili'],
-      samples: 10000,
-      units: 'Hours',
-      version: "1.0",
-      formats: ["wav", "mp3"],
-      license: "CC-BY-4.0",
-      lastUpdated: "2024-03-15",
-      totalSize: "50GB",
-      versions: [
-        {
-          version: "1.0",
-          stats: {
-            trainSamples: 8000,
-            testSamples: 1000,
-            validateSamples: 1000
-          }
-        }
-      ]
-    }
-  ];
-
   useEffect(() => {
     const fetchDatasets = async () => {
       try {
         setLoading(true);
-        const response = await axios.get('/api/datasets', {
+        const response = await axios.get('http://localhost:5000/api/datasets', {
           params: {
             type: activeFilters.type.join(','),
             language: activeFilters.language.join(','),
@@ -67,22 +40,17 @@ const DatasetCatalog = () => {
             search: searchQuery
           }
         });
-        setDatasets(response.data || []); // Ensure it's always an array
+        setDatasets(response.data || []);
       } catch (err) {
         setError('Error fetching datasets');
         console.error(err);
-        setDatasets([]); // Set empty array on error
+        setDatasets([]);
       } finally {
         setLoading(false);
       }
     };
 
-    // For testing, use dummy data instead of API call
-    setDatasets(dummyData);
-    setLoading(false);
-
-    // Uncomment this when your API is ready
-    // fetchDatasets();
+    fetchDatasets();
   }, [searchQuery, activeFilters]);
 
   // Add loading and error states
@@ -116,7 +84,7 @@ const DatasetCatalog = () => {
   };
 
   const handleViewDetails = (dataset) => {
-    setSelectedDataset(dataset);
+    navigate(`/datasets/${dataset.id}`);
   };
 
   return (
@@ -244,7 +212,6 @@ const DatasetCatalog = () => {
       {selectedDataset && (
         <DatasetDetailsModal
           dataset={selectedDataset}
-          apiKey={apiKey}
           onClose={() => setSelectedDataset(null)}
         />
       )}
