@@ -47,12 +47,12 @@ const Services = () => {
     {
       icon: <Rocket className="w-12 h-12" />,
       title: "AI Product Development",
-      description: "Develop AI-powered products that address unique business needs and drive innovation across African sectors.",
+      description: "Build specialized AI agents that revolutionize operations across various sectors with tailored solutions for African businesses.",
       features: [
-        "End-to-end development",
-        "Scalable solutions",
-        "Integration support",
-        "Maintenance services"
+        "Customer support AI agents",
+        "Content creation assistants",
+        "Automated invoicing systems",
+        "Sales optimization agents"
       ]
     },
     {
@@ -99,15 +99,15 @@ const Services = () => {
         {services.map((service, index) => (
           <div 
             key={index}
-            className="bg-neutral-900 rounded-xl p-6 hover:shadow-xl transition-all duration-300 hover:transform hover:-translate-y-1"
+            className="bg-gradient-to-br from-neutral-900 to-neutral-800 rounded-xl p-8 hover:shadow-2xl transition-all duration-300 hover:transform hover:-translate-y-2 border border-neutral-700/30 hover:border-red-500/20 backdrop-blur-sm"
           >
-            <div className="bg-neutral-800/50 rounded-lg p-4 inline-block mb-4">
+            <div className="bg-gradient-to-br from-red-500/10 to-orange-500/10 rounded-2xl p-5 inline-block mb-6">
               <div className="text-red-300">
                 {service.icon}
               </div>
             </div>
             
-            <h3 className="text-2xl font-bold text-red-300 mb-3">
+            <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-red-300 transition-colors">
               {service.title}
             </h3>
             
@@ -115,16 +115,16 @@ const Services = () => {
               {service.description}
             </p>
             
-            <ul className="space-y-3">
+            <ul className="space-y-3 mb-8">
               {service.features.map((feature, idx) => (
                 <li key={idx} className="flex items-center text-neutral-400">
-                  <ArrowRight className="w-4 h-4 text-orange-300 mr-2" />
+                  <ArrowRight className="w-4 h-4 text-orange-300 mr-2 flex-shrink-0" />
                   <span>{feature}</span>
                 </li>
               ))}
             </ul>
 
-            <button className="mt-6 w-full bg-gradient-to-r from-red-500 to-orange-300 px-4 py-2 rounded-lg text-white font-semibold hover:opacity-90 transition-opacity flex items-center justify-center group">
+            <button className="mt-auto w-full bg-gradient-to-r from-red-500 to-orange-300 px-5 py-3 rounded-lg text-white font-semibold hover:opacity-90 transition-all flex items-center justify-center group hover:shadow-lg">
               Learn More
               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
@@ -133,14 +133,14 @@ const Services = () => {
       </div>
 
       {/* Call to Action */}
-      <div className="text-center mt-16 bg-neutral-900/50 rounded-xl p-8">
+      <div className="text-center mt-20 bg-gradient-to-br from-neutral-900 to-neutral-800/80 rounded-xl p-10 border border-neutral-700/30 shadow-xl">
         <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
           Ready to Transform Your Business with AI?
         </h2>
-        <p className="text-neutral-300 mb-6 max-w-2xl mx-auto">
+        <p className="text-neutral-300 mb-8 max-w-2xl mx-auto">
           Let's discuss how our services can help you leverage AI for growth and innovation
         </p>
-        <button className="bg-gradient-to-r from-red-500 to-orange-300 px-8 py-3 rounded-lg text-white font-semibold hover:opacity-90 transition-opacity">
+        <button className="bg-gradient-to-r from-red-500 to-orange-300 px-8 py-4 rounded-lg text-white font-semibold hover:opacity-90 transition-all hover:shadow-lg">
           Schedule a Consultation
         </button>
       </div>

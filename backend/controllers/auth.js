@@ -3,11 +3,12 @@ const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
 const { OAuth2Client } = require('google-auth-library');
 const { google } = require('googleapis');
+const bcrypt = require('bcryptjs');
 
 const oauth2Client = new OAuth2Client(
   process.env.GOOGLE_CLIENT_ID,
   process.env.GOOGLE_CLIENT_SECRET,
-  ' https://b2ae-102-215-13-26.ngrok-free.app/auth/google/callback'
+  'https://3605-41-139-206-153.ngrok-free.app/api/auth/google/callback'
   // 'http://localhost:5000/auth/google/callback'
 );
 
@@ -107,6 +108,16 @@ exports.googleAuth = async (req, res) => {
   }
 };
 
+// Add a new route to initiate Google OAuth flow
+exports.initiateGoogleAuth = (req, res) => {
+  const authUrl = oauth2Client.generateAuthUrl({
+    access_type: 'offline',
+    scope: ['profile', 'email'],
+    include_granted_scopes: true
+  });
+  res.redirect(authUrl);
+};
+
 exports.googleCallback = async (req, res) => {
   try {
     const { code } = req.query;
@@ -135,9 +146,9 @@ exports.googleCallback = async (req, res) => {
     const token = generateToken(user._id);
 
     // Redirect to frontend with token
-    res.redirect(`http://localhost:5173/auth/success?token=${token}`);
+    res.redirect(`https://3605-41-139-206-153.ngrok-free.app/auth/success?token=${token}`);
   } catch (error) {
     console.error('Google callback error:', error);
-    res.redirect(`http://localhost:5173/auth/error`);
+    res.redirect(`https://3605-41-139-206-153.ngrok-free.app/auth/error`);
   }
 };

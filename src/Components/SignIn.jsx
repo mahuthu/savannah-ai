@@ -51,7 +51,7 @@ const SignIn = () => {
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('user', JSON.stringify(response.data));
       
-      navigate('/dashboard');
+      navigate('/');
     } catch (error) {
       setError('Error signing in with Google');
     }
