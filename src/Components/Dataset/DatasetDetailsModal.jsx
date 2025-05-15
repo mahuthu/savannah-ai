@@ -1,11 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { X, Copy, Check, Info } from 'lucide-react';
+import { X, Copy, Check, ExternalLink, Download, FileLock2, FileBarChart, FileBox } from 'lucide-react';
 import axios from 'axios';
 
+const TabItem = ({ active, title, onClick }) => (
+  <button
+    onClick={onClick}
+    className={`px-4 py-2 font-medium transition-colors ${
+      active
+        ? 'text-[#1EACEB] border-b-2 border-[#1EACEB]'
+        : 'text-slate-500 hover:text-[#1EACEB]'
+    }`}
+  >
+    {title}
+  </button>
+);
+
 const DatasetDetailsModal = ({ dataset, onClose }) => {
-  const [activeTab, setActiveTab] = useState('details');
+  const [activeTab, setActiveTab] = useState('overview');
   const [subscription, setSubscription] = useState(null);
-  const [copied, setCopied] = useState(false);
+  const [copyStatus, setCopyStatus] = useState({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -23,12 +36,10 @@ const DatasetDetailsModal = ({ dataset, onClose }) => {
     checkSubscription();
   }, [dataset.id]);
 
-  const copyApiKey = () => {
-    if (subscription?.apiKeys[0]?.key) {
-      navigator.clipboard.writeText(subscription.apiKeys[0].key);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    }
+  const handleCopy = (text, key) => {
+    navigator.clipboard.writeText(text);
+    setCopyStatus({ [key]: true });
+    setTimeout(() => setCopyStatus({}), 2000);
   };
 
   const handleSelectPlan = async (plan) => {
@@ -43,174 +54,246 @@ const DatasetDetailsModal = ({ dataset, onClose }) => {
     }
   };
 
-  return (
-    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-neutral-900 rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-        {/* Modal Header */}
-        <div className="sticky top-0 bg-neutral-900 p-4 border-b border-neutral-800 flex justify-between items-center">
-          <h2 className="text-xl font-semibold text-white">{dataset.title}</h2>
-          <button onClick={onClose} className="text-neutral-400 hover:text-white">
-            <X size={24} />
-          </button>
+  const tabContent = {
+    overview: (
+      <div className="space-y-6 p-6">
+        <div>
+          <h3 className="text-[#191D3A] font-semibold mb-2">Description</h3>
+          <p className="text-slate-600">{dataset.description}</p>
         </div>
 
-        <div className="p-6 space-y-8">
-          {/* Dataset Type and Stats */}
-          <div className="flex flex-wrap gap-4 items-center">
-            <span className="bg-red-500/10 text-red-300 px-3 py-1 rounded-full text-sm">
-              {dataset.type}
-            </span>
-            <span className="text-orange-300">
-              {dataset.samples.toLocaleString()} {dataset.units}
-            </span>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <h3 className="text-[#191D3A] font-semibold mb-2">Dataset Details</h3>
+            <ul className="space-y-2">
+              <li className="flex justify-between">
+                <span className="text-slate-500">Type:</span>
+                <span className="text-[#191D3A]">{dataset.type}</span>
+              </li>
+              <li className="flex justify-between">
+                <span className="text-slate-500">Size:</span>
+                <span className="text-[#191D3A]">{dataset.size} GB</span>
+              </li>
+              <li className="flex justify-between">
+                <span className="text-slate-500">Samples:</span>
+                <span className="text-[#191D3A]">{dataset.samples.toLocaleString()} {dataset.units}</span>
+              </li>
+              <li className="flex justify-between">
+                <span className="text-slate-500">License:</span>
+                <span className="text-[#191D3A]">{dataset.license}</span>
+              </li>
+              <li className="flex justify-between">
+                <span className="text-slate-500">Date Added:</span>
+                <span className="text-[#191D3A]">{dataset.dateAdded}</span>
+              </li>
+            </ul>
           </div>
 
-          {/* Description */}
           <div>
-            <h3 className="text-white font-semibold mb-2">Description</h3>
-            <p className="text-neutral-400">{dataset.description}</p>
-          </div>
-
-          {/* Languages */}
-          <div>
-            <h3 className="text-white font-semibold mb-2">Languages</h3>
+            <h3 className="text-[#191D3A] font-semibold mb-2">Languages</h3>
             <div className="flex flex-wrap gap-2">
               {dataset.languages.map(language => (
-                <span key={language} className="bg-neutral-800 text-neutral-300 px-2 py-1 rounded text-sm">
+                <span 
+                  key={language} 
+                  className="bg-gray-100 text-slate-700 px-3 py-1 rounded-full text-sm">
                   {language}
                 </span>
               ))}
             </div>
           </div>
-
-          {/* Dataset Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <h3 className="text-white font-semibold mb-3">Dataset Details</h3>
-              <ul className="space-y-2 text-sm">
-                <li className="flex justify-between">
-                  <span className="text-neutral-400">Version</span>
-                  <span className="text-white">{dataset.version}</span>
-                </li>
-                <li className="flex justify-between">
-                  <span className="text-neutral-400">Format</span>
-                  <span className="text-white">{dataset.formats?.join(', ')}</span>
-                </li>
-                <li className="flex justify-between">
-                  <span className="text-neutral-400">License</span>
-                  <span className="text-white">{dataset.license}</span>
-                </li>
-                <li className="flex justify-between">
-                  <span className="text-neutral-400">Last Updated</span>
-                  <span className="text-white">{dataset.lastUpdated}</span>
-                </li>
-              </ul>
             </div>
             
             <div>
-              <h3 className="text-white font-semibold mb-3">Dataset Stats</h3>
-              <ul className="space-y-2 text-sm">
-                <li className="flex justify-between">
-                  <span className="text-neutral-400">Total Size</span>
-                  <span className="text-white">{dataset.totalSize}</span>
-                </li>
-                <li className="flex justify-between">
-                  <span className="text-neutral-400">Train Samples</span>
-                  <span className="text-white">{dataset.versions?.[0]?.stats?.trainSamples?.toLocaleString()}</span>
-                </li>
-                <li className="flex justify-between">
-                  <span className="text-neutral-400">Test Samples</span>
-                  <span className="text-white">{dataset.versions?.[0]?.stats?.testSamples?.toLocaleString()}</span>
-                </li>
-                <li className="flex justify-between">
-                  <span className="text-neutral-400">Validation Samples</span>
-                  <span className="text-white">{dataset.versions?.[0]?.stats?.validateSamples?.toLocaleString()}</span>
-                </li>
+          <h3 className="text-[#191D3A] font-semibold mb-2">Use Cases</h3>
+          <ul className="list-disc pl-5 text-slate-600">
+            {dataset.useCases.map((useCase, index) => (
+              <li key={index}>{useCase}</li>
+            ))}
               </ul>
             </div>
           </div>
-
-          {/* Pricing Plans */}
-          <div className="border-t border-neutral-800 pt-8">
-            <h3 className="text-white font-semibold mb-6">Access Plans</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {Object.values(dataset.pricing).map((plan) => (
-                <div
-                  key={plan.id}
-                  className="bg-neutral-900/50 rounded-xl p-6 flex flex-col border border-neutral-800 hover:border-orange-500 transition-colors"
-                >
-                  <div className="text-center pb-4 border-b border-neutral-800">
-                    <h4 className="text-lg font-bold text-white mb-2">{plan.name}</h4>
-                    <div className="mb-2">
-                      <span className="text-2xl font-bold text-orange-300">
-                        ${plan.price}
-                      </span>
-                      <span className="text-neutral-400">/month</span>
+    ),
+    
+    schema: (
+      <div className="p-6">
+        <h3 className="text-[#191D3A] font-semibold mb-4">Dataset Schema</h3>
+        
+        <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+          <div className="flex justify-between items-center mb-2">
+            <span className="font-mono text-sm text-[#191D3A]">JSON Schema</span>
+            <button 
+              onClick={() => handleCopy(JSON.stringify(dataset.schema, null, 2), 'schema')}
+              className="text-slate-500 hover:text-[#1EACEB]"
+            >
+              {copyStatus['schema'] ? <Check size={18} /> : <Copy size={18} />}
+            </button>
                     </div>
-                    <p className="text-sm text-neutral-400">
-                      {plan.apiCalls ? `${plan.apiCalls.toLocaleString()} API calls/month` : 'Unlimited API calls'}
-                    </p>
+          <pre className="bg-white p-4 rounded border border-gray-200 overflow-x-auto text-sm text-slate-800">
+            {JSON.stringify(dataset.schema, null, 2)}
+          </pre>
                   </div>
 
-                  <ul className="space-y-3 my-4 flex-grow text-sm">
-                    {plan.features.map((feature, index) => (
-                      <li key={index} className="flex items-start text-neutral-300">
-                        <Check size={16} className="text-green-500 mr-2 flex-shrink-0 mt-1" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {subscription?.plan === plan.name ? (
+        <div>
+          <h4 className="text-[#191D3A] font-semibold mb-2">Sample Entry</h4>
+          <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+            <div className="flex justify-between items-center mb-2">
+              <span className="font-mono text-sm text-[#191D3A]">JSON Sample</span>
                     <button
-                      disabled
-                      className="w-full py-2 px-4 rounded-lg bg-green-500/20 text-green-300 font-medium cursor-not-allowed"
-                    >
-                      Current Plan
+                onClick={() => handleCopy(JSON.stringify(dataset.sampleEntry, null, 2), 'sample')}
+                className="text-slate-500 hover:text-[#1EACEB]"
+              >
+                {copyStatus['sample'] ? <Check size={18} /> : <Copy size={18} />}
                     </button>
-                  ) : (
-                    <button
-                      onClick={() => handleSelectPlan(plan)}
-                      className="w-full py-2 px-4 rounded-lg bg-gradient-to-r from-red-500 to-orange-300 text-white font-medium hover:opacity-90 transition-opacity"
-                    >
-                      Select Plan
-                    </button>
-                  )}
-                </div>
-              ))}
             </div>
+            <pre className="bg-white p-4 rounded border border-gray-200 overflow-x-auto text-sm text-slate-800">
+              {JSON.stringify(dataset.sampleEntry, null, 2)}
+            </pre>
           </div>
-
-          {/* API Access - Only shown for subscribed users */}
-          {subscription && (
-            <div className="border-t border-neutral-800 pt-8">
-              <div className="bg-black/30 rounded-lg p-6">
-                <h3 className="text-white font-semibold mb-4">API Access</h3>
+        </div>
+      </div>
+    ),
+    
+    download: (
+      <div className="p-6 space-y-6">
+        <div>
+          <h3 className="text-[#191D3A] font-semibold mb-4">Download Options</h3>
+          <div className="bg-white p-4 rounded-lg border border-gray-200 mb-6">
+            <p className="text-slate-600 mb-4">
+              This dataset is available in multiple formats. Choose the one that suits your needs best.
+            </p>
+            
                 <div className="space-y-4">
-                  <div className="bg-black rounded p-3 flex justify-between items-center">
-                    <code className="text-orange-300 text-sm">
-                      {subscription.apiKeys[0].key}
-                    </code>
-                    <button
-                      onClick={copyApiKey}
-                      className="text-neutral-400 hover:text-white ml-2"
-                    >
-                      {copied ? <Check size={20} /> : <Copy size={20} />}
+              <div className="flex justify-between items-center p-3 border border-gray-200 rounded bg-gray-50">
+                <div className="flex items-center gap-3">
+                  <FileBox className="text-[#1EACEB]" />
+                  <div>
+                    <p className="font-medium text-[#191D3A]">Complete Dataset</p>
+                    <p className="text-sm text-slate-500">{dataset.size} GB</p>
+                  </div>
+                </div>
+                <button className="bg-gradient-to-r from-[#4BBC30] to-[#1EACEB] px-4 py-2 rounded text-white flex items-center gap-2 hover:opacity-90 transition-opacity">
+                  <Download size={16} />
+                  Download
                     </button>
                   </div>
                   
+              <div className="flex justify-between items-center p-3 border border-gray-200 rounded bg-gray-50">
+                <div className="flex items-center gap-3">
+                  <FileLock2 className="text-[#1EACEB]" />
                   <div>
-                    <h4 className="text-white text-sm font-medium mb-2">Python Example</h4>
-                    <pre className="bg-black rounded p-3 overflow-x-auto">
-                      <code className="text-sm text-neutral-300">
-                        {`import requests\n\nAPI_KEY = "${subscription.apiKeys[0].key}"\ndataset_id = "${dataset.id}"\n\nheaders = {\n    "Authorization": f"Bearer {API_KEY}",\n    "Content-Type": "application/json"\n}\n\n# Download dataset\nresponse = requests.get(\n    f"https://api.savannahai.com/v1/datasets/{dataset.id}/download",\n    headers=headers\n)\n\nwith open("dataset.zip", "wb") as f:\n    f.write(response.content)`}
-                      </code>
-                    </pre>
+                    <p className="font-medium text-[#191D3A]">Training Split</p>
+                    <p className="text-sm text-slate-500">{Math.round(dataset.size * 0.8 * 10) / 10} GB</p>
                   </div>
                 </div>
+                <button className="bg-gradient-to-r from-[#4BBC30] to-[#1EACEB] px-4 py-2 rounded text-white flex items-center gap-2 hover:opacity-90 transition-opacity">
+                  <Download size={16} />
+                  Download
+                </button>
+              </div>
+              
+              <div className="flex justify-between items-center p-3 border border-gray-200 rounded bg-gray-50">
+                <div className="flex items-center gap-3">
+                  <FileBarChart className="text-[#1EACEB]" />
+                  <div>
+                    <p className="font-medium text-[#191D3A]">Validation Split</p>
+                    <p className="text-sm text-slate-500">{Math.round(dataset.size * 0.2 * 10) / 10} GB</p>
+                  </div>
+                </div>
+                <button className="bg-gradient-to-r from-[#4BBC30] to-[#1EACEB] px-4 py-2 rounded text-white flex items-center gap-2 hover:opacity-90 transition-opacity">
+                  <Download size={16} />
+                  Download
+                </button>
               </div>
             </div>
-          )}
+          </div>
+        </div>
+        
+        <div>
+          <h3 className="text-[#191D3A] font-semibold mb-4">API Access</h3>
+          <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+            <p className="text-slate-600 mb-4">
+              You can also access this dataset via our API. Here's an example:
+            </p>
+            
+            <div className="bg-white p-4 rounded border border-gray-200 mb-4">
+              <div className="flex justify-between items-center mb-2">
+                <span className="font-mono text-sm text-[#191D3A]">Python</span>
+                <button 
+                  onClick={() => handleCopy(`import requests
+API_KEY = "your_api_key_here"
+response = requests.get(
+    "https://api.genbioai.com/v1/datasets/${dataset.id}/download",
+    headers={"Authorization": f"Bearer {API_KEY}"}
+)`, 'python')}
+                  className="text-slate-500 hover:text-[#1EACEB]"
+                >
+                  {copyStatus['python'] ? <Check size={18} /> : <Copy size={18} />}
+                </button>
+              </div>
+              <pre className="overflow-x-auto text-sm text-slate-800">
+{`import requests
+API_KEY = "your_api_key_here"
+response = requests.get(
+    "https://api.genbioai.com/v1/datasets/${dataset.id}/download",
+    headers={"Authorization": f"Bearer {API_KEY}"}
+)`}
+              </pre>
+            </div>
+            
+            <a 
+              href="#" 
+              className="text-[#1E4EEB] hover:text-[#4BBC30] flex items-center gap-1 transition-colors"
+            >
+              View complete API documentation
+              <ExternalLink size={14} />
+            </a>
+          </div>
+        </div>
+      </div>
+    )
+  };
+
+  return (
+    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
+      <div className="bg-white rounded-lg w-full max-w-4xl max-h-[90vh] overflow-hidden">
+        {/* Header */}
+        <div className="flex justify-between items-center border-b border-gray-200 p-4">
+          <div>
+            <h2 className="text-xl font-bold text-[#191D3A]">{dataset.title}</h2>
+            <p className="text-slate-500 text-sm">{dataset.samples.toLocaleString()} {dataset.units}</p>
+          </div>
+          <button 
+            onClick={onClose}
+            className="p-2 rounded-full hover:bg-gray-100 text-slate-500 hover:text-[#1EACEB] transition-colors"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
+        
+        {/* Tabs */}
+        <div className="border-b border-gray-200">
+          <div className="flex space-x-4 px-4">
+            <TabItem 
+              active={activeTab === 'overview'} 
+              title="Overview" 
+              onClick={() => setActiveTab('overview')} 
+            />
+            <TabItem 
+              active={activeTab === 'schema'} 
+              title="Schema" 
+              onClick={() => setActiveTab('schema')} 
+            />
+            <TabItem 
+              active={activeTab === 'download'} 
+              title="Download" 
+              onClick={() => setActiveTab('download')} 
+            />
+          </div>
+        </div>
+        
+        {/* Tab Content */}
+        <div className="overflow-y-auto max-h-[calc(90vh-130px)]">
+          {tabContent[activeTab]}
         </div>
       </div>
     </div>

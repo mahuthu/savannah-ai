@@ -8,7 +8,7 @@ const bcrypt = require('bcryptjs');
 const oauth2Client = new OAuth2Client(
   process.env.GOOGLE_CLIENT_ID,
   process.env.GOOGLE_CLIENT_SECRET,
-  'https://3605-41-139-206-153.ngrok-free.app/api/auth/google/callback'
+  'https://4ce8-217-199-148-229.ngrok-free.app/api/auth/google/callback'
   // 'http://localhost:5000/auth/google/callback'
 );
 

@@ -10,10 +10,12 @@ const Navbar = () => {
 
   return (
     <div className="nav">
-      <div className="nav_logo">Savannah AI</div>
+      <div className="nav_logo">
+        <span className="logo-text-gradient">Savannah AI</span>
+      </div>
       
       {/* Hamburger Menu Button */}
-      <div className="hamburger" onClick={toggleMenu}>
+      <div className={`hamburger ${isMenuOpen ? 'active' : ''}`} onClick={toggleMenu}>
         <span></span>
         <span></span>
         <span></span>
@@ -24,7 +26,7 @@ const Navbar = () => {
         <li>Services</li>
         <li>Datasets</li>
         <li>Pricing</li>
-        <li className="nav-contact">Contacts</li>
+        <li className="nav-contact">Contact</li>
       </ul>
     </div>
   );

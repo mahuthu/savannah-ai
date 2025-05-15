@@ -15,7 +15,7 @@ connectDB();
 app.use(helmet());
 app.use(cors({
   origin: ['http://localhost:5173',
-          ' https://aa48-41-139-206-153.ngrok-free.app'],
+          'https://4ce8-217-199-148-229.ngrok-free.app'],
   
   credentials: true
 }));

@@ -16,7 +16,7 @@ const ApiReference = () => {
       authentication: `import requests
 
 API_KEY = "your_api_key_here"
-BASE_URL = "https://api.savannahai.com/v1"
+BASE_URL = "https://api.genbioai.com/v1"
 
 headers = {
     "Authorization": f"Bearer {API_KEY}",
@@ -31,7 +31,7 @@ response = requests.get(
 datasets = response.json()
 print(datasets)`,
       downloadData: `# Download specific dataset version
-dataset_id = "kiswahili_common_voice"
+dataset_id = "protein_sequences"
 version = "1.0"
 split = "train"  # or "test" or "validate"
 
@@ -43,13 +43,13 @@ response = requests.get(
 with open(f"{split}.zip", "wb") as f:
     f.write(response.content)`,
       trainModel: `# Example using transformers library
-from transformers import Wav2Vec2ForCTC, Trainer
+from transformers import AutoModelForSequenceClassification, Trainer
 
 # Load the dataset
 dataset = load_dataset("path/to/downloaded/data")
 
 # Initialize model
-model = Wav2Vec2ForCTC.from_pretrained("facebook/wav2vec2-base")
+model = AutoModelForSequenceClassification.from_pretrained("genbio-ai/aido-protein")
 
 # Training configuration
 training_args = TrainingArguments(
@@ -70,7 +70,7 @@ trainer = Trainer(
     },
     javascript: {
       authentication: `const API_KEY = 'your_api_key_here';
-const BASE_URL = 'https://api.savannahai.com/v1';
+const BASE_URL = 'https://api.genbioai.com/v1';
 
 const headers = {
   'Authorization': \`Bearer \${API_KEY}\`,
@@ -87,7 +87,7 @@ const getDatasets = async () => {
 };`,
       downloadData: `// Download specific dataset version
 const downloadDataset = async () => {
-  const datasetId = 'kiswahili_common_voice';
+  const datasetId = 'protein_sequences';
   const version = '1.0';
   const split = 'train'; // or 'test' or 'validate'
 
@@ -131,27 +131,27 @@ const trainModel = async () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-12">
+    <div className="container mx-auto px-4 py-12 bg-white">
       {/* Header */}
       <div className="text-center mb-12">
-        <h1 className="text-3xl sm:text-4xl font-bold mb-4">
+        <h1 className="text-3xl sm:text-4xl font-bold mb-4 text-[#191D3A]">
           API Documentation
         </h1>
-        <p className="text-xl bg-gradient-to-r from-orange-200 to-red-300 text-transparent bg-clip-text font-semibold mb-2">
-          Get Started with Savannah AI API
+        <p className="text-xl bg-gradient-to-r from-[#4BBC30] to-[#1EACEB] text-transparent bg-clip-text font-semibold mb-2">
+          Get Started with GenBio AI API
         </p>
-        <p className="text-neutral-400 max-w-2xl mx-auto">
-          Learn how to access and utilize our datasets for training your AI models.
+        <p className="text-slate-600 max-w-2xl mx-auto">
+          Learn how to access and utilize our models for your research and applications.
         </p>
       </div>
 
       {/* API Key Section */}
       <div className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-          <Key className="text-red-300" />
+        <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2 text-[#191D3A]">
+          <Key className="text-[#1EACEB]" />
           Authentication
         </h2>
-        <p className="text-neutral-400 mb-4">
+        <p className="text-slate-600 mb-4">
           All API requests require authentication using your API key. You can find your API key in your dashboard.
         </p>
       </div>
@@ -159,13 +159,13 @@ const trainModel = async () => {
       {/* Code Examples */}
       <div className="space-y-8">
         {/* Language Tabs */}
-        <div className="flex space-x-4 border-b border-neutral-800">
+        <div className="flex space-x-4 border-b border-gray-200">
           <button
             onClick={() => setActiveTab('python')}
             className={`px-4 py-2 font-medium transition-colors ${
               activeTab === 'python'
-                ? 'text-red-300 border-b-2 border-red-300'
-                : 'text-neutral-400 hover:text-red-300'
+                ? 'text-[#1EACEB] border-b-2 border-[#1EACEB]'
+                : 'text-slate-500 hover:text-[#1EACEB]'
             }`}
           >
             Python
@@ -174,8 +174,8 @@ const trainModel = async () => {
             onClick={() => setActiveTab('javascript')}
             className={`px-4 py-2 font-medium transition-colors ${
               activeTab === 'javascript'
-                ? 'text-red-300 border-b-2 border-red-300'
-                : 'text-neutral-400 hover:text-red-300'
+                ? 'text-[#1EACEB] border-b-2 border-[#1EACEB]'
+                : 'text-slate-500 hover:text-[#1EACEB]'
             }`}
           >
             JavaScript
@@ -184,14 +184,14 @@ const trainModel = async () => {
 
         {/* Code Blocks */}
         {Object.entries(codeExamples[activeTab]).map(([section, code], index) => (
-          <div key={section} className="bg-neutral-900/50 rounded-lg p-6 backdrop-blur-sm border border-neutral-800">
+          <div key={section} className="bg-gray-50 rounded-lg p-6 border border-gray-200">
             <div className="flex justify-between items-center mb-4">
-              <h3 className="text-lg font-semibold capitalize">
+              <h3 className="text-lg font-semibold capitalize text-[#191D3A]">
                 {section.replace(/([A-Z])/g, ' $1').trim()}
               </h3>
               <button
                 onClick={() => copyToClipboard(code, index)}
-                className="text-neutral-400 hover:text-red-300 transition-colors"
+                className="text-slate-500 hover:text-[#1EACEB] transition-colors"
               >
                 {copiedCode === index ? (
                   <Check className="w-5 h-5" />
@@ -200,8 +200,8 @@ const trainModel = async () => {
                 )}
               </button>
             </div>
-            <pre className="bg-black/30 p-4 rounded-lg overflow-x-auto">
-              <code className="text-neutral-300 text-sm">{code}</code>
+            <pre className="bg-white p-4 rounded-lg overflow-x-auto border border-gray-200">
+              <code className="text-slate-800 text-sm">{code}</code>
             </pre>
           </div>
         ))}
@@ -209,24 +209,24 @@ const trainModel = async () => {
 
       {/* Additional Resources */}
       <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-        <a href="#" className="block p-6 bg-neutral-900/50 rounded-lg border border-neutral-800 hover:border-red-300 transition-colors">
-          <Terminal className="w-8 h-8 text-red-300 mb-4" />
-          <h3 className="text-lg font-semibold mb-2">CLI Tool</h3>
-          <p className="text-neutral-400 text-sm">
+        <a href="#" className="block p-6 bg-white rounded-lg border border-gray-200 hover:border-[#1EACEB] transition-colors">
+          <Terminal className="w-8 h-8 text-[#4BBC30] mb-4" />
+          <h3 className="text-lg font-semibold mb-2 text-[#191D3A]">CLI Tool</h3>
+          <p className="text-slate-600 text-sm">
             Download our command-line tool for easier dataset management.
           </p>
         </a>
-        <a href="#" className="block p-6 bg-neutral-900/50 rounded-lg border border-neutral-800 hover:border-red-300 transition-colors">
-          <Code2 className="w-8 h-8 text-red-300 mb-4" />
-          <h3 className="text-lg font-semibold mb-2">SDK Reference</h3>
-          <p className="text-neutral-400 text-sm">
+        <a href="#" className="block p-6 bg-white rounded-lg border border-gray-200 hover:border-[#1EACEB] transition-colors">
+          <Code2 className="w-8 h-8 text-[#4BBC30] mb-4" />
+          <h3 className="text-lg font-semibold mb-2 text-[#191D3A]">SDK Reference</h3>
+          <p className="text-slate-600 text-sm">
             Explore our SDK documentation for your preferred language.
           </p>
         </a>
-        <a href="#" className="block p-6 bg-neutral-900/50 rounded-lg border border-neutral-800 hover:border-red-300 transition-colors">
-          <PlayCircle className="w-8 h-8 text-red-300 mb-4" />
-          <h3 className="text-lg font-semibold mb-2">Tutorials</h3>
-          <p className="text-neutral-400 text-sm">
+        <a href="#" className="block p-6 bg-white rounded-lg border border-gray-200 hover:border-[#1EACEB] transition-colors">
+          <PlayCircle className="w-8 h-8 text-[#4BBC30] mb-4" />
+          <h3 className="text-lg font-semibold mb-2 text-[#191D3A]">Tutorials</h3>
+          <p className="text-slate-600 text-sm">
             Watch video tutorials on how to use our API effectively.
           </p>
         </a>

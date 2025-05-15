@@ -24,21 +24,21 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-neutral-900 to-black py-20">
+    <div className="min-h-screen bg-white py-20">
       <div className="container mx-auto px-4">
         {/* Header Section */}
         <div className="text-center mb-16">
-          <span className="inline-block bg-red-500/10 text-red-300 rounded-full px-4 py-2 text-sm font-medium uppercase tracking-wider mb-6">
+          <span className="inline-block bg-[#1EACEB]/10 text-[#1EACEB] rounded-full px-4 py-2 text-sm font-medium uppercase tracking-wider mb-6">
             Contact Us
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-[#191D3A]">
             Get in Touch
-            <span className="block mt-2 bg-gradient-to-r from-orange-200 to-red-300 text-transparent bg-clip-text">
+            <span className="block mt-2 bg-gradient-to-r from-[#4BBC30] to-[#1EACEB] text-transparent bg-clip-text">
               We'd Love to Hear from You
             </span>
           </h2>
-          <p className="text-neutral-400 max-w-2xl mx-auto text-lg">
-            Have questions about our services? Need support? We're here to help.
+          <p className="text-slate-600 max-w-2xl mx-auto text-lg">
+            Have questions about our models? Need research collaboration? We're here to help.
           </p>
         </div>
 
@@ -46,54 +46,53 @@ const ContactPage = () => {
           {/* Contact Information */}
           <div className="space-y-8">
             {/* Contact Cards */}
-            <div className="bg-neutral-900/50 backdrop-blur-sm p-6 rounded-xl border border-neutral-800">
+            <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100">
               <div className="flex items-start space-x-4">
-                <div className="bg-red-500/10 p-3 rounded-lg">
-                  <Phone className="w-6 h-6 text-red-300" />
+                <div className="bg-[#1EACEB]/10 p-3 rounded-lg">
+                  <Phone className="w-6 h-6 text-[#1EACEB]" />
                 </div>
                 <div>
-                  <h3 className="text-white font-semibold mb-2">Phone</h3>
-                  <p className="text-neutral-400">+254793704217</p>
-                  <p className="text-neutral-400">+254726258462</p>
+                  <h3 className="text-[#191D3A] font-semibold mb-2">Phone</h3>
+                  <p className="text-slate-600">+1 (408) 647-3806</p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-neutral-900/50 backdrop-blur-sm p-6 rounded-xl border border-neutral-800">
+            <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100">
               <div className="flex items-start space-x-4">
-                <div className="bg-red-500/10 p-3 rounded-lg">
-                  <Mail className="w-6 h-6 text-red-300" />
+                <div className="bg-[#1EACEB]/10 p-3 rounded-lg">
+                  <Mail className="w-6 h-6 text-[#1EACEB]" />
                 </div>
                 <div>
-                  <h3 className="text-white font-semibold mb-2">Email</h3>
-                  <p className="text-neutral-400">info@savannahai.com</p>
-                  <p className="text-neutral-400">support@savannahai.com</p>
+                  <h3 className="text-[#191D3A] font-semibold mb-2">Email</h3>
+                  <p className="text-slate-600">info@genbio.ai</p>
+                  <p className="text-slate-600">media@genbio.ai</p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-neutral-900/50 backdrop-blur-sm p-6 rounded-xl border border-neutral-800">
+            <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100">
               <div className="flex items-start space-x-4">
-                <div className="bg-red-500/10 p-3 rounded-lg">
-                  <MapPin className="w-6 h-6 text-red-300" />
+                <div className="bg-[#1EACEB]/10 p-3 rounded-lg">
+                  <MapPin className="w-6 h-6 text-[#1EACEB]" />
                 </div>
                 <div>
-                  <h3 className="text-white font-semibold mb-2">Location</h3>
-                  <p className="text-neutral-400">Nairobi, Kenya</p>
-                  <p className="text-neutral-400">East Africa</p>
+                  <h3 className="text-[#191D3A] font-semibold mb-2">Location</h3>
+                  <p className="text-slate-600">435 Tasso St, Suite 300</p>
+                  <p className="text-slate-600">Palo Alto, California, 94301</p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-neutral-900/50 backdrop-blur-sm p-6 rounded-xl border border-neutral-800">
+            <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100">
               <div className="flex items-start space-x-4">
-                <div className="bg-red-500/10 p-3 rounded-lg">
-                  <Clock className="w-6 h-6 text-red-300" />
+                <div className="bg-[#1EACEB]/10 p-3 rounded-lg">
+                  <Clock className="w-6 h-6 text-[#1EACEB]" />
                 </div>
                 <div>
-                  <h3 className="text-white font-semibold mb-2">Business Hours</h3>
-                  <p className="text-neutral-400">Monday - Friday: 9:00 AM - 6:00 PM</p>
-                  <p className="text-neutral-400">Saturday: 9:00 AM - 1:00 PM</p>
+                  <h3 className="text-[#191D3A] font-semibold mb-2">Business Hours</h3>
+                  <p className="text-slate-600">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                  <p className="text-slate-600">Saturday: 9:00 AM - 1:00 PM</p>
                 </div>
               </div>
             </div>
@@ -101,12 +100,12 @@ const ContactPage = () => {
 
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <div className="bg-neutral-900/50 backdrop-blur-sm p-8 rounded-xl border border-neutral-800">
-              <h3 className="text-2xl font-bold mb-6">Send us a Message</h3>
+            <div className="bg-white p-8 rounded-xl shadow-md border border-gray-100">
+              <h3 className="text-2xl font-bold mb-6 text-[#191D3A]">Send us a Message</h3>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-neutral-300 mb-2">
+                    <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-2">
                       Your Name
                     </label>
                     <input
@@ -116,14 +115,14 @@ const ContactPage = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 rounded-lg bg-neutral-800 border border-neutral-700 
-                               text-white placeholder-neutral-400 focus:outline-none focus:border-red-300 
+                      className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 
+                               text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#1EACEB] 
                                transition-colors"
                       placeholder="John Doe"
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-neutral-300 mb-2">
+                    <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">
                       Your Email
                     </label>
                     <input
@@ -133,8 +132,8 @@ const ContactPage = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 rounded-lg bg-neutral-800 border border-neutral-700 
-                               text-white placeholder-neutral-400 focus:outline-none focus:border-red-300 
+                      className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 
+                               text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#1EACEB] 
                                transition-colors"
                       placeholder="john@example.com"
                     />
@@ -142,7 +141,7 @@ const ContactPage = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-neutral-300 mb-2">
+                  <label htmlFor="subject" className="block text-sm font-medium text-slate-700 mb-2">
                     Subject
                   </label>
                   <input
@@ -152,15 +151,15 @@ const ContactPage = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-lg bg-neutral-800 border border-neutral-700 
-                             text-white placeholder-neutral-400 focus:outline-none focus:border-red-300 
+                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 
+                             text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#1EACEB] 
                              transition-colors"
                     placeholder="How can we help?"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-neutral-300 mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-2">
                     Message
                   </label>
                   <textarea
@@ -170,8 +169,8 @@ const ContactPage = () => {
                     onChange={handleChange}
                     required
                     rows="6"
-                    className="w-full px-4 py-3 rounded-lg bg-neutral-800 border border-neutral-700 
-                             text-white placeholder-neutral-400 focus:outline-none focus:border-red-300 
+                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 
+                             text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#1EACEB] 
                              transition-colors resize-none"
                     placeholder="Your message here..."
                   ></textarea>
@@ -179,7 +178,7 @@ const ContactPage = () => {
 
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-red-500 to-orange-300 py-3 px-6 rounded-lg 
+                  className="w-full bg-gradient-to-r from-[#4BBC30] to-[#1EACEB] py-3 px-6 rounded-lg 
                            text-white font-semibold hover:opacity-90 transition-opacity flex items-center 
                            justify-center gap-2 group"
                 >
@@ -193,10 +192,10 @@ const ContactPage = () => {
 
         {/* Map Section */}
         <div className="mt-16">
-          <div className="bg-neutral-900/50 backdrop-blur-sm p-4 rounded-xl border border-neutral-800">
+          <div className="bg-white p-4 rounded-xl shadow-md border border-gray-100">
             <iframe
               title="Location Map"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d255281.19891888283!2d36.70730744863279!3d-1.3031933000000025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1172d84d49a7%3A0xf7cf0254b297924c!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2sus!4v1635835023219!5m2!1sen!2sus"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3168.642614163368!2d-122.14438138397606!3d37.42938597982537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fbb3741c3518d%3A0x55cb5a851766146b!2s435%20Tasso%20St%2C%20Palo%20Alto%2C%20CA%2094301%2C%20USA!5e0!3m2!1sen!2sus!4v1635835023219!5m2!1sen!2sus"
               width="100%"
               height="400"
               style={{ border: 0 }}

@@ -3,9 +3,11 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
-    color: white;
-    position: relative;
-
+    color: #1E4EEB;
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+    background-color: transparent;
 }
 
 .nav_logo{
@@ -13,7 +15,14 @@
     font-weight: 600;
     font-style: normal;
     font-family: "Kulim Park", sans-serif;
-    color: #a9a7ce
+}
+
+.logo-text-gradient {
+    background: linear-gradient(to right, #4BBC30, #1EACEB);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 700;
 }
 
 .nav-menu{
@@ -22,15 +31,17 @@
     list-style: none;
     font-size: 15px;
     gap: 40px;
-    color: #be150f
-
+    color: #1E4EEB;
+    font-weight: 500;
 }
 
 .nav-contact{
     border-radius: 50px;
     padding: 10px 20px;
-    background-color: #fff;
-    color: #be150f;
+    background: linear-gradient(to right, #4BBC30, #1EACEB);
+    color: #fff;
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
 
 /* Hamburger Menu Styles */
@@ -46,14 +57,14 @@
     display: block;
     width: 25px;
     height: 3px;
-    background-color: #be150f;
+    background-color: #1E4EEB;
     transition: all 0.3s ease-in-out;
 }
 
 /* Mobile Responsive Styles */
 @media screen and (max-width: 768px) {
     .nav {
-        margin: 20px;
+        padding: 20px;
     }
 
     .hamburger {
@@ -65,7 +76,7 @@
         right: -100%;
         top: 0;
         flex-direction: column;
-        background-color: rgba(0, 0, 0, 0.9);
+        background-color: rgba(255, 255, 255, 0.95);
         width: 100%;
         height: 100vh;
         padding-top: 80px;
@@ -85,6 +96,7 @@
     /* Hamburger Animation */
     .hamburger.active span:nth-child(1) {
         transform: rotate(45deg) translate(8px, 8px);
+        background-color: #1EACEB;
     }
 
     .hamburger.active span:nth-child(2) {
@@ -93,22 +105,40 @@
 
     .hamburger.active span:nth-child(3) {
         transform: rotate(-45deg) translate(7px, -7px);
+        background-color: #1EACEB;
     }
 }
 
 /* Animation for menu items */
 .nav-menu li {
     transition: all 0.3s ease;
+    position: relative;
 }
 
 .nav-menu li:hover {
     transform: translateY(-2px);
-    color: #ff4b41;
+    color: #1EACEB;
+}
+
+.nav-menu li::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, #4BBC30, #1EACEB);
+    transition: width 0.3s ease;
+}
+
+.nav-menu li:hover::after {
+    width: 100%;
 }
 
 .nav-contact:hover {
-    background-color: #be150f;
+    background: linear-gradient(to right, #3ba524, #169ed5);
     color: white;
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(30, 172, 235, 0.2);
 }
 

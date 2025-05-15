@@ -15,6 +15,9 @@ import DatasetDetails from './pages/DatasetDetails';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import AuthSuccess from './pages/AuthSuccess';
 import AuthError from './pages/AuthError';
+import Blog1 from "./pages/blog1"
+import Blog2 from "./pages/blog2"
+import CaseStudies from './pages/CaseStudies';
 // ... other imports
 
 
@@ -53,6 +56,12 @@ const App = () => {
               <Route path="/datasets/:id" element={<DatasetDetails />} />
               <Route path="/auth/success" element={<AuthSuccess />} />
               <Route path="/auth/error" element={<AuthError />} />
+              <Route path="/blog1" element={<Blog1 />} />
+              <Route path="/blog2" element={<Blog2 />} />
+              <Route path="/case-studies" element={<CaseStudies />} />
+
+
+              
 
 
             </Routes>

@@ -1,77 +1,50 @@
-import React, { useRef } from 'react';
-import Slider from 'react-slick';
+import React from 'react';
 import image1 from "../assets/openai.jpg";
 import image2 from "../assets/langchain2.png";
 import image4 from "../assets/llama2.png";
 import image5 from "../assets/gemini2.png";
 import image6 from "../assets/claude.png";
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 
 const PartnersSection = () => {
-  const sliderRef = useRef(null);
-
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    pauseOnHover: false,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          arrows: false,
-          centerMode: true,
-          centerPadding: '20px'
-        }
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          arrows: false,
-          centerMode: true,
-          centerPadding: '20px'
-        }
-      }
-    ],
-    beforeChange: (current, next) => {
-      if (sliderRef.current) {
-        sliderRef.current.slickPause();
-      }
-    },
-  };
-
-  const handleImageClick = () => {
-    if (sliderRef.current) {
-      sliderRef.current.slickPlay();
-    }
-  };
-
+  // Partner logos
+  const logos = [
+    { id: 1, name: "OpenAI", src: image1 },
+    { id: 2, name: "LangChain", src: image2 },
+    { id: 3, name: "Meta (LLaMA)", src: image4 },
+    { id: 4, name: "Google (Gemini)", src: image5 },
+    { id: 5, name: "Anthropic", src: image6 },
+    { id: 6, name: "National Hospital", src: image1 }, // Replace with actual hospital logo
+    { id: 7, name: "Regional Medical Center", src: image2 }, // Replace with actual hospital logo
+    { id: 8, name: "EcoFarms Kenya", src: image4 }, // Replace with actual agriculture partner logo
+  ];
+  
   return (
-    <div className="relative mt-5 sm:mt-20 border-b border-neutral-800 min-h-[300px] sm:min-h-[600px] ">
-      <div className="text-center px-2 sm:px-6 lg:px-8">
-        <span className="inline-block bg-red-500/10 text-red-300 rounded-full text-xs sm:text-sm font-medium px-2 py-1 uppercase">
-          Our Partners
-        </span>
-        <h2 className="text-xl sm:text-3xl lg:text-4xl mt-4 sm:mt-10 lg:mt-20 tracking-wide text-red-200">
-          GENERATIVE AI PROVIDERS
-        </h2>
-        <div className="max-w-[90%] sm:max-w-screen-xl mx-auto mt-4 sm:mt-8">
-          <Slider {...settings} ref={sliderRef}>
-            {[image1, image2, image4, image5, image6].map((image, index) => (
-              <div key={index} className="px-1 sm:px-2" onClick={handleImageClick}>
-                <img src={image} alt={`Partner ${index + 1}`} className="w-full h-auto rounded-lg border border-orange-300 shadow-lg  my-2 sm:my-4 transition-transform duration-300 hover:scale-105" />
-              </div>
-            ))}
-          </Slider>
+    <div className="bg-white/10 mt-16 pt-10">
+      <div className="container mx-auto px-4 py-10">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 text-[#191D3A]">
+            Our Partners
+          </h2>
+          <p className="text-xl sm:text-2xl bg-gradient-to-r from-[#4BBC30] to-[#1EACEB] text-transparent bg-clip-text font-bold mb-8">
+            Collaborative innovation across industries
+          </p>
+        </div>
+        
+        {/* Logo Grid - 4 per row */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-16 max-w-5xl mx-auto">
+          {logos.map((logo) => (
+            <div 
+              key={logo.id}
+              className="flex items-center justify-center py-8"
+            >
+              <img 
+                src={logo.src} 
+                alt={logo.name} 
+                className="max-h-24 max-w-full object-contain transition-all hover:scale-110" 
+              />
+            </div>
+          ))}
         </div>
       </div>
     </div>

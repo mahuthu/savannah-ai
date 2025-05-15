@@ -66,7 +66,7 @@ const SignIn = () => {
           </h2>
           <p className="mt-2 text-center text-sm text-neutral-400">
             Or{' '}
-            <Link to="/Register" className="font-medium text-orange-300 hover:text-orange-400">
+            <Link to="/Register" className="font-medium text-[#1EACEB] hover:text-[#1E4EEB]">
               create a new account
             </Link>
           </p>
@@ -87,7 +87,7 @@ const SignIn = () => {
                 name="email"
                 type="email"
                 required
-                className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-neutral-700 bg-neutral-900 placeholder-neutral-400 text-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-neutral-700 bg-neutral-900 placeholder-neutral-400 text-white focus:outline-none focus:ring-2 focus:ring-[#1EACEB] focus:border-transparent"
                 placeholder="Email address"
                 value={formData.email}
                 onChange={handleChange}
@@ -100,7 +100,7 @@ const SignIn = () => {
                 name="password"
                 type="password"
                 required
-                className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-neutral-700 bg-neutral-900 placeholder-neutral-400 text-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-neutral-700 bg-neutral-900 placeholder-neutral-400 text-white focus:outline-none focus:ring-2 focus:ring-[#1EACEB] focus:border-transparent"
                 placeholder="Password"
                 value={formData.password}
                 onChange={handleChange}
@@ -114,7 +114,7 @@ const SignIn = () => {
                 id="remember-me"
                 name="remember-me"
                 type="checkbox"
-                className="h-4 w-4 rounded border-neutral-700 bg-neutral-900 text-orange-500 focus:ring-orange-500"
+                className="h-4 w-4 rounded border-neutral-700 bg-neutral-900 text-[#1EACEB] focus:ring-[#1EACEB]"
               />
               <label htmlFor="remember-me" className="ml-2 block text-sm text-neutral-400">
                 Remember me
@@ -122,7 +122,7 @@ const SignIn = () => {
             </div>
 
             <div className="text-sm">
-              <a href="#" className="font-medium text-orange-300 hover:text-orange-400">
+              <a href="#" className="font-medium text-[#1EACEB] hover:text-[#1E4EEB]">
                 Forgot password?
               </a>
             </div>
@@ -132,7 +132,7 @@ const SignIn = () => {
             <button
               type="submit"
               disabled={loading}
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 disabled:opacity-50"
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gradient-to-r from-[#1E4EEB] to-[#1EACEB] hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1EACEB] disabled:opacity-50"
             >
               {loading ? 'Signing in...' : 'Sign in'}
             </button>

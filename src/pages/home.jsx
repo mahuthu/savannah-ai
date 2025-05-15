@@ -4,7 +4,10 @@ import Pricing from "../Components/Pricing";
 import FeatureSection from "../Components/FeatureSection";
 import Testimonials from "../Components/Testimonials";
 import PartnersSection from "../Components/Partners";
-import Contact from "../Components/Contact";
+// import Contact from "../Components/Contact";
+import OurModels from "../Components/OurModels";
+import CoreBanner from "../Components/CoreBanner"
+import CustomerStories from "../Components/CustomerStories";
 
 const Home = ({ heroCount, setHeroCount, playStatus, setPlayStatus }) => {
   let heroData = [
@@ -22,12 +25,16 @@ const Home = ({ heroCount, setHeroCount, playStatus, setPlayStatus }) => {
         setHeroCount={setHeroCount}
         playStatus={playStatus}
       />
-      <AboutUs />
+      {/* <AboutUs /> */}
+      {/* <FeatureSection /> */}
+      {/* <OurModels /> */}
       <Pricing />
-      <FeatureSection />
-      <Testimonials />
+      <OurModels/>
+      <CustomerStories />
+      {/* <Testimonials /> */}
       <PartnersSection />
-      <Contact />
+      <CoreBanner/>
+      {/* <Contact /> */}
     </div>
   );
 };

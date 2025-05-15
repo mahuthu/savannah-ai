@@ -78,7 +78,7 @@ const SignUp = () => {
           </h2>
           <p className="mt-2 text-center text-sm text-neutral-400">
             Or{' '}
-            <Link to="/login" className="font-medium text-orange-300 hover:text-orange-400">
+            <Link to="/login" className="font-medium text-[#1EACEB] hover:text-[#1E4EEB]">
               sign in to your account
             </Link>
           </p>
@@ -99,7 +99,7 @@ const SignUp = () => {
                 name="name"
                 type="text"
                 required
-                className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-neutral-700 bg-neutral-900 placeholder-neutral-400 text-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-neutral-700 bg-neutral-900 placeholder-neutral-400 text-white focus:outline-none focus:ring-2 focus:ring-[#1EACEB] focus:border-transparent"
                 placeholder="Full name"
                 value={formData.name}
                 onChange={handleChange}
@@ -112,7 +112,7 @@ const SignUp = () => {
                 name="email"
                 type="email"
                 required
-                className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-neutral-700 bg-neutral-900 placeholder-neutral-400 text-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-neutral-700 bg-neutral-900 placeholder-neutral-400 text-white focus:outline-none focus:ring-2 focus:ring-[#1EACEB] focus:border-transparent"
                 placeholder="Email address"
                 value={formData.email}
                 onChange={handleChange}
@@ -125,7 +125,7 @@ const SignUp = () => {
                 name="password"
                 type="password"
                 required
-                className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-neutral-700 bg-neutral-900 placeholder-neutral-400 text-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-neutral-700 bg-neutral-900 placeholder-neutral-400 text-white focus:outline-none focus:ring-2 focus:ring-[#1EACEB] focus:border-transparent"
                 placeholder="Password"
                 value={formData.password}
                 onChange={handleChange}
@@ -138,7 +138,7 @@ const SignUp = () => {
                 name="confirmPassword"
                 type="password"
                 required
-                className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-neutral-700 bg-neutral-900 placeholder-neutral-400 text-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-neutral-700 bg-neutral-900 placeholder-neutral-400 text-white focus:outline-none focus:ring-2 focus:ring-[#1EACEB] focus:border-transparent"
                 placeholder="Confirm password"
                 value={formData.confirmPassword}
                 onChange={handleChange}
@@ -150,7 +150,7 @@ const SignUp = () => {
             <button
               type="submit"
               disabled={loading}
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 disabled:opacity-50"
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gradient-to-r from-[#1E4EEB] to-[#1EACEB] hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1EACEB] disabled:opacity-50"
             >
               {loading ? 'Creating account...' : 'Create account'}
             </button>

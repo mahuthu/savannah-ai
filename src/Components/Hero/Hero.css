@@ -4,6 +4,7 @@
     flex-direction: column;
     justify-content: center;
     position: relative;
+    overflow: hidden;
   }
   
   /* Fade in animation */
@@ -20,6 +21,10 @@
   
   .animate-fade-in {
     animation: fadeIn 1s ease-out forwards;
+  }
+  
+  .animation-delay-200 {
+    animation-delay: 200ms;
   }
   
   /* Gradient animation */
@@ -44,22 +49,329 @@
     bottom: 0;
     background: linear-gradient(
       45deg,
-      rgba(239, 68, 68, 0.1),
-      rgba(251, 146, 60, 0.1),
-      rgba(239, 68, 68, 0.1)
+      rgba(30, 172, 235, 0.03),
+      rgba(75, 188, 48, 0.03),
+      rgba(30, 78, 235, 0.03)
     );
     background-size: 200% 200%;
     animation: gradientFlow 15s ease infinite;
     pointer-events: none;
   }
   
-  /* Responsive text sizing */
-  @media (max-width: 640px) {
-    .hero-text h1 {
-      font-size: 2.5rem;
+  /* Text rotation effect */
+  .rotating-text-container {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    min-height: 1.2em;
+    text-align: center;
+    margin-bottom: 0.8em;
+  }
+  
+  .rotating-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s;
+    font-weight: 700;
+    color: #0f172a; /* slate-900 */
+    visibility: hidden;
+    font-size: 1.1em;
+  }
+  
+  .rotating-text.active {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+  
+  .gradient-text {
+    background-size: 200% auto;
+    animation: shiftGradient 5s infinite alternate;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: #0f172a; /* Fallback color */
+    display: inline-block;
+    -webkit-text-fill-color: transparent;
+    font-size: 0.95em;
+    line-height: 1.3;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .rotating-text-container {
+      margin-bottom: 1.2em;
     }
     
-    .hero-explore h2 {
-      font-size: 1.875rem;
+    .hero-text h1 {
+      font-size: 2.75rem;
+      line-height: 1.2;
     }
+    
+    .hero-text p {
+      font-size: 1.25rem;
+      padding: 0 10px;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .rotating-text-container {
+      margin-bottom: 1.5em;
+      padding-bottom: 5px;
+      padding-top: 10px;
+    }
+    
+    .rotating-text {
+      padding-top: 5px;
+    }
+    
+    .hero-text h1 {
+      font-size: 2.25rem;
+      line-height: 1.3;
+      padding: 0 10px;
+    }
+    
+    .hero-text p {
+      font-size: 1.15rem;
+      padding: 0 15px;
+    }
+    
+    .gradient-text {
+      white-space: normal;
+      font-size: 0.9em;
+    }
+    
+    .mobile-friendly-text {
+      display: block;
+      padding: 0 15px;
+      padding-top: 10px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      margin: 0.5rem auto;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .rotating-text {
+      font-size: 1.15em;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .rotating-text {
+      font-size: 1.2em;
+    }
+  }
+  
+  /* DNA helix animation with GenBio colors */
+  .dna-helix-animation {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    opacity: 0.7;
+  }
+  
+  .dna-helix-animation::before,
+  .dna-helix-animation::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(75, 188, 48, 0), rgba(75, 188, 48, 0.7), rgba(75, 188, 48, 0));
+    animation: dnaRotate 5s linear infinite;
+  }
+  
+  .dna-helix-animation::after {
+    animation-delay: 0.5s;
+    background: linear-gradient(90deg, rgba(30, 172, 235, 0), rgba(30, 172, 235, 0.7), rgba(30, 172, 235, 0));
+  }
+  
+  @keyframes dnaRotate {
+    0% {
+      transform: perspective(100px) rotateX(0deg);
+    }
+    100% {
+      transform: perspective(100px) rotateX(360deg);
+    }
+  }
+  
+  /* Button hover effects with GenBio theme colors */
+  button.bg-gradient-to-r:hover {
+    background-size: 150% 150%;
+    background-position: right center;
+    transition: all 0.5s ease;
+  }
+  
+  /* Secondary button hover effect */
+  button.bg-transparent:hover {
+    border-color: rgba(30, 78, 235, 0.2);
+  }
+  
+  /* Scientific pattern overlay */
+  .scientific-visual {
+    position: relative;
+    height: 60px;
+    margin-top: 1rem;
+    margin-bottom: 0;
+  }
+  
+  /* Particle animation for scientific effect */
+  @keyframes particleFloat {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 0.8;
+    }
+    50% {
+      transform: translateY(-20px) rotate(180deg);
+      opacity: 0.3;
+    }
+  }
+  
+  /* Dual Cards Section Styles */
+  .dual-cards-section {
+    position: relative;
+    background-color: #f9fafb;
+    padding: 0 0 4rem;
+  }
+  
+  .card-wrapper {
+    overflow: hidden;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+  }
+  
+  .card-wrapper:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  
+  .card-image {
+    height: 18rem;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .card-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.5;
+    z-index: 1;
+  }
+  
+  .green-blue-gradient {
+    background: linear-gradient(135deg, rgba(75, 188, 48, 0.9), rgba(30, 172, 235, 0.9));
+  }
+  
+  .blue-gradient {
+    background: linear-gradient(135deg, rgba(30, 78, 235, 0.9), rgba(30, 172, 235, 0.9));
+  }
+  
+  .card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem;
+    color: white;
+    z-index: 2;
+  }
+  
+  .indicator-line {
+    height: 2px;
+    width: 3rem;
+    background-color: white;
+    margin: 0.75rem 0 1rem;
+    transition: width 0.3s ease;
+  }
+  
+  .card-wrapper:hover .indicator-line {
+    width: 5rem;
+  }
+  
+  .card-footer {
+    background-color: white;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .read-more-link {
+    color: #1E4EEB;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    transition: gap 0.3s ease;
+  }
+  
+  .card-wrapper:hover .read-more-link {
+    gap: 0.5rem;
+  }
+  
+  .read-more-icon {
+    transition: transform 0.3s ease;
+  }
+  
+  .card-wrapper:hover .read-more-icon {
+    transform: translateX(2px);
+  }
+  
+  /* Gradient text animation */
+  .gradient-text-wrapper {
+    display: inline-block;
+    white-space: nowrap;
+  }
+  
+  .gradient-text {
+    background-size: 200% auto;
+    animation: shiftGradient 5s infinite alternate;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+    -webkit-text-fill-color: transparent;
+    white-space: nowrap;
+  }
+  
+  @keyframes shiftGradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+  
+  /* Fix for gradient text in Safari */
+  @supports (-webkit-background-clip: text) {
+    .gradient-text {
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  .headline-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+  }
+
+  .mobile-friendly-text {
+    display: block;
+    margin: 0 auto;
+    padding: 0 15px;
   }

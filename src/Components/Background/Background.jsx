@@ -2,9 +2,9 @@ import "./Background.css";
 import React from 'react';
 
 import video1 from '../../assets/Gen-2spaceship.mp4';
-import image1 from '../../assets/data.jpg';
-import image2 from '../../assets/data.jpg';
-import image3 from '../../assets/data.jpg';
+import image1 from '../../assets/bac5.avif';
+import image2 from '../../assets/bac5.avif';
+import image3 from '../../assets/bac5.avif';
 
 const Background = ({ playStatus, heroCount }) => {
     let backgroundImage = '';

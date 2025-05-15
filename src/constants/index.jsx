@@ -23,22 +23,27 @@ export const navItems = [
     href: "/aboutus",
     submenus: [] 
   },
-  { 
-    label: "Services", 
-    href: "/services",
-    submenus: [] 
-  },
+  // { 
+  //   label: "Services", 
+  //   href: "/services",
+  //   submenus: [] 
+  // },
   { 
     label: "Datasets", 
     href: "/dataset",
     submenus: [] 
   },
-  
   { 
-    label: "Documentation", 
-    href: "/apireference",
+    label: "Blog", 
+    href: "/blogs",
     submenus: [] 
   },
+  
+  // { 
+  //   label: "Documentation", 
+  //   href: "/apireference",
+  //   submenus: [] 
+  // },
 ];
 
 export const testimonials = [
@@ -177,7 +182,7 @@ export const pricingOptions = [
 
 export const resourcesLinks = [
   { href: "#", text: "Getting Started" },
-  { href: "#", text: "Documentation" },
+  { href: "/apireference", text: "Documentation" },
   { href: "#", text: "Tutorials" },
   { href: "#", text: "API Reference" },
   { href: "#", text: "Community Forums" },
