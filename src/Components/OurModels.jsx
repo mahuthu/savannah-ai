@@ -27,7 +27,7 @@ const OurModels = () => {
                 />
               </div>
               <a 
-                href="https://huggingface.co/mahuthu" 
+                href="/login" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#191D3A] hover:text-[#4BBC30] transition-colors text-center"
@@ -46,7 +46,7 @@ const OurModels = () => {
                 />
               </div>
               <a 
-                href="https://github.com/mahuthu" 
+                href="login" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#191D3A] hover:text-[#4BBC30] transition-colors text-center"

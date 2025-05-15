@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import "./Hero.css";
 import dnaImage from '../../assets/agriculture.jpg';
 import cellImage from '../../assets/hosp1.jpeg';
@@ -50,14 +51,17 @@ const Hero = () => {
             "Building Africa's Future with Precision Data in Health and Agriculture"            </p>
           </div>
 
-          {/* Single button section */}
+          {/* Single button section - Changed to Link component */}
           <div className="flex justify-center mb-12 sm:mb-16">
-            <button className="bg-gradient-to-r from-[#4BBC30] to-[#1EACEB] 
-                         px-6 sm:px-8 py-3 sm:py-4 rounded-md text-white font-medium text-base sm:text-lg 
-                         hover:opacity-90 transition-all flex items-center gap-2 group w-full sm:w-auto max-w-xs mx-auto">
+            <Link 
+              to="/aboutus" 
+              className="bg-gradient-to-r from-[#4BBC30] to-[#1EACEB] 
+                       px-6 sm:px-8 py-3 sm:py-4 rounded-md text-white font-medium text-base sm:text-lg 
+                       hover:opacity-90 transition-all flex items-center gap-2 group w-full sm:w-auto max-w-xs mx-auto"
+            >
               Introducing Our Vision
               <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </Link>
           </div>
           
           {/* Scientific visual cue with GenBio colors */}
@@ -82,10 +86,10 @@ const Hero = () => {
                 </div>
               </div>
               <div className="card-footer">
-                <a href="/blog1" className="read-more-link">
+                <Link to="/blog1" className="read-more-link">
                   Read more
                   <ArrowRight className="w-4 h-4 read-more-icon" />
-                </a>
+                </Link>
               </div>
             </div>
             
@@ -100,10 +104,10 @@ const Hero = () => {
                 </div>
               </div>
               <div className="card-footer">
-                <a href="/blog2" className="read-more-link">
+                <Link to="/blog2" className="read-more-link">
                   Read more
                   <ArrowRight className="w-4 h-4 read-more-icon" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>

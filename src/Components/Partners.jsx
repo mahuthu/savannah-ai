@@ -3,7 +3,6 @@ import image1 from "../assets/johnsnow.webp";
 import image2 from "../assets/cds.png";
 import image4 from "../assets/karlo.webp";
 import image5 from "../assets/tahmo.jpeg";
-// import image6 from "../assets/claude.png";
 
 const PartnersSection = () => {
   // Partner logos
@@ -12,7 +11,6 @@ const PartnersSection = () => {
     { id: 2, name: "LangChain", src: image2 },
     { id: 3, name: "Meta (LLaMA)", src: image4 },
     { id: 4, name: "Google (Gemini)", src: image5 },
-    // { id: 5, name: "Anthropic", src: image6 },
    
   ];
   
@@ -34,12 +32,12 @@ const PartnersSection = () => {
           {logos.map((logo) => (
             <div 
               key={logo.id}
-              className="flex items-center justify-center py-8"
+              className="flex items-center justify-center py-10"
             >
               <img 
                 src={logo.src} 
                 alt={logo.name} 
-                className="max-h-24 max-w-full object-contain transition-all hover:scale-110" 
+                className="max-h-32 max-w-full object-contain transition-all hover:scale-110" 
               />
             </div>
           ))}

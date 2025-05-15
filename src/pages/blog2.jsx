@@ -78,7 +78,7 @@ const IntroducingTiba = () => {
             <h3 className="text-xl font-bold mb-4 text-[#191D3A]">How TIBA Works</h3>
 
             <p className="text-slate-700 mb-4">
-              Patients or hospital staff upload handwritten records, which are processed using OCR. Named Entity Recognition extracts symptoms, diagnoses, medications, and other key medical data and maps it to structured digital fields in the HIMS. Clinicians and administrators then access real-time insights for accurate diagnosis and faster decisions.
+              Patients or hospital staff upload handwritten records, which are processed using OCR/NER. Extraction of prescriptions, lab results, triage info, diagnoses, and other key medical data and mapping it to structured digital fields in the HIMS. Clinicians and administrators then access real-time insights for accurate diagnosis and faster decisions.
             </p>
 
             <div className="space-y-4">
@@ -135,7 +135,7 @@ const IntroducingTiba = () => {
             <div className="p-6 bg-gray-50 rounded-lg">
               <h3 className="text-xl font-bold mb-3 text-[#191D3A]">Admin Efficiency</h3>
               <p className="text-slate-700">
-                Real-time access to clean medical data reduces the burden of paperwork and improves hospital workflow.
+                Real-time access to clean medical data reduces the burden of paperwork, improves hospital workflow and ensures faster decision making.
               </p>
             </div>
           </div>
@@ -145,7 +145,7 @@ const IntroducingTiba = () => {
         <div className="max-w-3xl mx-auto text-center py-16">
           <h2 className="text-3xl font-bold mb-6 text-[#191D3A]">Join Us on Our Journey</h2>
           <p className="text-lg text-slate-700 mb-8">
-            Discover how Savannah Synapse is transforming healthcare in Kenya through AI-driven digitization and patient-first design.
+            Discover how Savannah AI is transforming healthcare in Kenya through AI-driven digitization and patient-first design.
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-4">

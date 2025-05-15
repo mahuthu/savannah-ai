@@ -84,7 +84,7 @@ const Pricing = () => {
         
         <div className="flex justify-center mt-4 sm:mt-6">
           <a 
-            href="#" 
+            href="login" 
             className="bg-gradient-to-r from-[#4BBC30] to-[#1EACEB] 
               py-2 sm:py-3 
               px-3 sm:px-4 
