@@ -1,9 +1,9 @@
 import React from 'react';
-import image1 from "../assets/openai.jpg";
-import image2 from "../assets/langchain2.png";
-import image4 from "../assets/llama2.png";
-import image5 from "../assets/gemini2.png";
-import image6 from "../assets/claude.png";
+import image1 from "../assets/johnsnow.webp";
+import image2 from "../assets/cds.png";
+import image4 from "../assets/karlo.webp";
+import image5 from "../assets/tahmo.jpeg";
+// import image6 from "../assets/claude.png";
 
 const PartnersSection = () => {
   // Partner logos
@@ -12,10 +12,8 @@ const PartnersSection = () => {
     { id: 2, name: "LangChain", src: image2 },
     { id: 3, name: "Meta (LLaMA)", src: image4 },
     { id: 4, name: "Google (Gemini)", src: image5 },
-    { id: 5, name: "Anthropic", src: image6 },
-    { id: 6, name: "National Hospital", src: image1 }, // Replace with actual hospital logo
-    { id: 7, name: "Regional Medical Center", src: image2 }, // Replace with actual hospital logo
-    { id: 8, name: "EcoFarms Kenya", src: image4 }, // Replace with actual agriculture partner logo
+    // { id: 5, name: "Anthropic", src: image6 },
+   
   ];
   
   return (
