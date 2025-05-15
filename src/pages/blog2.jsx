@@ -145,7 +145,7 @@ const IntroducingTiba = () => {
         <div className="max-w-3xl mx-auto text-center py-16">
           <h2 className="text-3xl font-bold mb-6 text-[#191D3A]">Join Us on Our Journey</h2>
           <p className="text-lg text-slate-700 mb-8">
-            Discover how Savannah AI is transforming healthcare in Kenya through AI-driven digitization and patient-first design.
+            Discover how Savannah AI is transforming healthcare through AI-driven digitization and patient-first design.
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-4">

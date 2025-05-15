@@ -53,7 +53,7 @@ const ContactPage = () => {
                 </div>
                 <div>
                   <h3 className="text-[#191D3A] font-semibold mb-2">Phone</h3>
-                  <p className="text-slate-600">+1 (408) 647-3806</p>
+                  <p className="text-slate-600">+254 (793) 704-217</p>
                 </div>
               </div>
             </div>
@@ -65,8 +65,8 @@ const ContactPage = () => {
                 </div>
                 <div>
                   <h3 className="text-[#191D3A] font-semibold mb-2">Email</h3>
-                  <p className="text-slate-600">info@genbio.ai</p>
-                  <p className="text-slate-600">media@genbio.ai</p>
+                  <p className="text-slate-600">info@savannahinc.co.ke</p>
+                  <p className="text-slate-600">support@tiba.co.ke</p>
                 </div>
               </div>
             </div>
@@ -78,8 +78,8 @@ const ContactPage = () => {
                 </div>
                 <div>
                   <h3 className="text-[#191D3A] font-semibold mb-2">Location</h3>
-                  <p className="text-slate-600">435 Tasso St, Suite 300</p>
-                  <p className="text-slate-600">Palo Alto, California, 94301</p>
+                  <p className="text-slate-600">Westlands, Brookside Dr</p>
+                  <p className="text-slate-600">The Piano, Nairobi, Kenya</p>
                 </div>
               </div>
             </div>
