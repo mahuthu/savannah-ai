@@ -195,7 +195,7 @@ const ContactPage = () => {
           <div className="bg-white p-4 rounded-xl shadow-md border border-gray-100">
             <iframe
               title="Location Map"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3168.642614163368!2d-122.14438138397606!3d37.42938597982537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fbb3741c3518d%3A0x55cb5a851766146b!2s435%20Tasso%20St%2C%20Palo%20Alto%2C%20CA%2094301%2C%20USA!5e0!3m2!1sen!2sus!4v1635835023219!5m2!1sen!2sus"
+              src="https://www.google.com/maps?q=-1.2562594450937576,36.79624646789903&z=15&output=embed"
               width="100%"
               height="400"
               style={{ border: 0 }}

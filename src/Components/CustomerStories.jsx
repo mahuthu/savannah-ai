@@ -10,7 +10,7 @@ const CustomerStories = () => {
     healthcare: {
       logo: "Hopkins Hospital Bungoma", // Replace with actual client logo/image path
       title: "Digitizing Medical Records to Prevent Misdiagnosis",
-      description: "In partnership with Hopkins Hospital in Bungoma, Savannah AI deployed the TIBA HIMS platform to digitize handwritten and paper-based medical records using AI-driven OCR and NER. This streamlined access to patient history, reduced duplication of tests, and significantly lowered misdiagnosis rates by enabling real-time decision support for clinicians.",
+      description: "In partnership with Hopkins Hospital in Bungoma, Savannah AI deployed the TIBA HIMS platform to digitize handwritten and paper-based medical records using AI-driven OCR and NER. This streamlined access to patient history, improved operational efficiency, and significantly lowered misdiagnosis rates by enabling real-time decision support for clinicians.",
       image: hospitalImage,
       stats: [
         { value: "20%", label: "Reduction in Misdiagnosis" },
